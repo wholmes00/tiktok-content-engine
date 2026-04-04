@@ -2364,7 +2364,10 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
         structural_rules = structural_rules + "\n" + holiday_context
 
     # Build angle constraints from database (Improvement #1)
-    from tiktok_engine.v2.pipeline.angle_scorer import build_angle_constraint_prompt, get_angle_rankings
+    try:
+        from tiktok_engine.v2.pipeline.angle_scorer import build_angle_constraint_prompt, get_angle_rankings
+    except ImportError:
+        from v2.pipeline.angle_scorer import build_angle_constraint_prompt, get_angle_rankings
     angle_constraints = build_angle_constraint_prompt(product_brief)
     angle_rankings = get_angle_rankings()
     print(f"  Angle rankings loaded — top angle: {angle_rankings[0]['angle']} (score {angle_rankings[0]['weighted_score']:,})")

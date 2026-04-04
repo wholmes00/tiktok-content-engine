@@ -486,6 +486,24 @@ def run_pipeline(args):
         save_json(output_dir / "edit_guide.json", edit_guide, "Edit Guide data")
 
     # ═════════════════════════════════════════════════════════
+    #  PASS 4c: Transform LLM Output → Content Contract
+    # ═════════════════════════════════════════════════════════
+
+    banner("PASS 4c: Transform to Content Contract")
+
+    from v2.pipeline.transform import transform_shoot_guide, transform_edit_guide
+
+    shoot_content = transform_shoot_guide(shoot_guide, product_name, creator_name) if shoot_guide else None
+    edit_content = transform_edit_guide(edit_guide, product_name, creator_name) if edit_guide else None
+
+    if shoot_content:
+        save_json(output_dir / "shoot_guide_v2.json", shoot_content, "Shoot Guide (v2 schema)")
+        print(f"  Transformed: {len(shoot_content.get('heroes',[]))} heroes, {len(shoot_content.get('broll',[]))} b-roll, {len(shoot_content.get('voiceovers',[]))} VOs")
+    if edit_content:
+        save_json(output_dir / "edit_guide_v2.json", edit_content, "Edit Guide (v2 schema)")
+        print(f"  Transformed: {len(edit_content.get('heroes',[]))} heroes, {len(edit_content.get('remixes',[]))} remixes")
+
+    # ═════════════════════════════════════════════════════════
     #  PASS 5: Content Validation Gate
     # ═════════════════════════════════════════════════════════
 
@@ -494,8 +512,8 @@ def run_pipeline(args):
     from v2.pipeline.validate_content import validate_content_plan, print_content_validation_report
 
     content_plan = {
-        "shoot_guide": shoot_guide,
-        "edit_guide": edit_guide,
+        "shoot_guide": shoot_content,
+        "edit_guide": edit_content,
     }
 
     cv_result = validate_content_plan(content_plan)
@@ -547,17 +565,17 @@ def run_pipeline(args):
     edit_guide_docx = output_dir / f"{slug}_Edit_Guide.docx"
 
     # Generate Shoot Guide docx
-    if shoot_guide:
+    if shoot_content:
         try:
-            render_shoot_guide(shoot_guide, str(shoot_guide_docx))
+            render_shoot_guide(shoot_content, str(shoot_guide_docx))
             print(f"  ✓ {shoot_guide_docx.name}")
         except (ValueError, Exception) as e:
             print(f"  ✗ Shoot Guide docx failed: {e}")
 
     # Generate Edit Guide docx
-    if edit_guide:
+    if edit_content:
         try:
-            render_edit_guide(edit_guide, str(edit_guide_docx))
+            render_edit_guide(edit_content, str(edit_guide_docx))
             print(f"  ✓ {edit_guide_docx.name}")
         except (ValueError, Exception) as e:
             print(f"  ✗ Edit Guide docx failed: {e}")
