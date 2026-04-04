@@ -1518,7 +1518,7 @@ def generate_product_research(product_name, search_results_text):
     }
 
 
-def generate_hooks_prompt(product_brief, research_data, persona_context=""):
+def generate_hooks_prompt(product_brief, research_data, persona_context="", hook_template_constraints=""):
     """
     PASS 2: Isolated hook generation.
 
@@ -1526,6 +1526,9 @@ def generate_hooks_prompt(product_brief, research_data, persona_context=""):
     It gets the full database of real hooks for reference but NOTHING ELSE —
     no script structure, no CTAs, no b-roll, no edit guide schemas.
     The model's entire focus is on hooks.
+
+    If hook_template_constraints is provided (Improvement #2), hooks are
+    generated from proven structural templates rather than invented from scratch.
     """
 
     # Get all hooks sorted by engagement
@@ -1536,6 +1539,38 @@ def generate_hooks_prompt(product_brief, research_data, persona_context=""):
     for i, h in enumerate(sorted_hooks):
         eng = h.get("avg_engagement_rate") or 0
         hook_lines.append(f'  #{i+1} ({eng:,.0f}): "{h["hook_text"]}"')
+
+    # Build the output format section — changes based on whether templates are active
+    if hook_template_constraints:
+        output_rules = """OUTPUT FORMAT (exactly this, nothing else):
+
+HOOK 1: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+HOOK 2: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+HOOK 3: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+HOOK 4: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+HOOK 5: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+HOOK 6: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+HOOK 7: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+HOOK 8: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+HOOK 9: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+HOOK 10: [hook text] | TEMPLATE: [HT# or ORIGINAL]
+
+That's it. Ten hooks with template IDs. No commentary. No explanations."""
+    else:
+        output_rules = """OUTPUT FORMAT (exactly this, nothing else):
+
+HOOK 1: [hook text]
+HOOK 2: [hook text]
+HOOK 3: [hook text]
+HOOK 4: [hook text]
+HOOK 5: [hook text]
+HOOK 6: [hook text]
+HOOK 7: [hook text]
+HOOK 8: [hook text]
+HOOK 9: [hook text]
+HOOK 10: [hook text]
+
+That's it. Ten hooks. No commentary. No explanations. Just raw hooks."""
 
     prompt = f"""You write TikTok hooks. That's all you do. You are the best in the world at it.
 
@@ -1551,7 +1586,7 @@ to do with the product. Some are 2-3 words. THAT is why they work.
 
 PRODUCT (for context only — do NOT mention in hooks):
 {product_brief}
-
+{hook_template_constraints}
 YOUR TASK:
 Write 10 hooks for this product. Not 5. TEN. We'll pick the best 5.
 
@@ -1561,34 +1596,11 @@ RULES:
 - Each hook must leave a MASSIVE unanswered question. Incomplete. Unresolved.
 - They must sound SPOKEN — like someone blurted it out, not typed it.
 - They must be raw, not polished. Messy > clean. Weird > safe.
-- Use a DIFFERENT approach for each hook. Mix it up:
-    * Visceral/gross result
-    * Totally unrelated pattern interrupt
-    * Ultra-short mystery (2-5 words)
-    * Emotional gut punch
-    * Warning / pseudo-negative ("be careful with these" / "I'm returning this")
-    * Authority challenge ("why did nobody tell us this")
-    * Hidden truth / conspiracy energy
-    * Reverse psychology
-    * Price shock
-    * Social reaction from someone else
+- The hooks must follow the STRUCTURAL PATTERNS of top-performing categories.
 - TEST EACH HOOK: Read it out loud. If it doesn't make a listener say "wait, WHAT?" — throw it out and write a new one.
 - DO NOT explain, justify, or annotate the hooks. Just write them.
 
-OUTPUT FORMAT (exactly this, nothing else):
-
-HOOK 1: [hook text]
-HOOK 2: [hook text]
-HOOK 3: [hook text]
-HOOK 4: [hook text]
-HOOK 5: [hook text]
-HOOK 6: [hook text]
-HOOK 7: [hook text]
-HOOK 8: [hook text]
-HOOK 9: [hook text]
-HOOK 10: [hook text]
-
-That's it. Ten hooks. No commentary. No explanations. Just raw hooks.
+{output_rules}
 """
     return prompt
 
@@ -1615,7 +1627,16 @@ def generate_hooks(product_brief, product_category=None, creator_name=None, crea
     research_data = get_research_data(product_category)
     print(f"  Loaded {len(research_data['hook_patterns'])} hooks from database")
 
-    prompt = generate_hooks_prompt(product_brief, research_data, persona_context)
+    # Build hook template constraints (Improvement #2)
+    try:
+        from tiktok_engine.v2.pipeline.hook_templates import build_hook_template_prompt
+    except ImportError:
+        from v2.pipeline.hook_templates import build_hook_template_prompt
+    hook_template_constraints = build_hook_template_prompt(product_brief)
+    print(f"  Hook template constraints ready ({len(hook_template_constraints)} chars)")
+
+    prompt = generate_hooks_prompt(product_brief, research_data, persona_context,
+                                   hook_template_constraints=hook_template_constraints)
     print(f"  Hook prompt ready ({len(prompt)} chars)")
 
     return {"prompt": prompt, "research_data": research_data}
@@ -2246,7 +2267,19 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
             holiday_names = [h["holiday_name"] for h in upcoming_holidays]
             holiday_hook_hint = f"\nHOLIDAY CONTEXT: {', '.join(holiday_names)} is approaching. If the product fits, 2-3 of your 10 hooks can lean into the holiday/gifting/seasonal angle. The rest should be evergreen. Only do this if the product-holiday fit is natural — don't force it."
 
-        hooks_prompt = generate_hooks_prompt(product_brief, research_data, persona_hook_ctx + holiday_hook_hint)
+        # Build hook template constraints (Improvement #2)
+        try:
+            from tiktok_engine.v2.pipeline.hook_templates import build_hook_template_prompt
+        except ImportError:
+            from v2.pipeline.hook_templates import build_hook_template_prompt
+        hook_template_constraints = build_hook_template_prompt(product_brief)
+        print(f"  Hook template constraints ready ({len(hook_template_constraints)} chars)")
+
+        hooks_prompt = generate_hooks_prompt(
+            product_brief, research_data,
+            persona_context=persona_hook_ctx + holiday_hook_hint,
+            hook_template_constraints=hook_template_constraints,
+        )
         print(f"  Hook prompt ready ({len(hooks_prompt)} chars)")
         print(f"\n  >> Send this prompt to Claude, then call again with hook_responses")
 
@@ -2265,19 +2298,42 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
     print("\n[PASS 3] Scoring hooks...")
 
     # Parse hook texts from responses (handle multiple rounds)
+    # Handles both old format "HOOK N: text" and template format "HOOK N: text | TEMPLATE: HT#"
     import re
     all_hooks = []
+    hook_template_map = {}  # track which template each hook came from
     for response in hook_responses:
         lines = response.strip().split("\n")
         for line in lines:
-            # Match "HOOK N: text" or just lines that look like hooks
+            # Match "HOOK N: text" or "HOOK N: text | TEMPLATE: HT#"
             match = re.match(r'(?:HOOK\s*\d+\s*:\s*)(.*)', line, re.IGNORECASE)
             if match:
-                hook_text = match.group(1).strip().strip('"').strip("'")
+                raw = match.group(1).strip().strip('"').strip("'")
+                # Strip template annotation if present
+                template_id = None
+                tmpl_match = re.search(r'\|\s*TEMPLATE:\s*(HT\d+|ORIGINAL)\s*$', raw, re.IGNORECASE)
+                if tmpl_match:
+                    template_id = tmpl_match.group(1).upper()
+                    raw = raw[:tmpl_match.start()].strip().strip('"').strip("'")
+                hook_text = raw
                 if hook_text:
                     all_hooks.append(hook_text)
+                    if template_id:
+                        hook_template_map[hook_text] = template_id
 
     print(f"  Parsed {len(all_hooks)} hooks from {len(hook_responses)} response(s)")
+
+    # Log template coverage (Improvement #2)
+    if hook_template_map:
+        template_count = sum(1 for v in hook_template_map.values() if v != "ORIGINAL")
+        original_count = sum(1 for v in hook_template_map.values() if v == "ORIGINAL")
+        untagged = len(all_hooks) - len(hook_template_map)
+        print(f"  Template coverage: {template_count} template-based, {original_count} original, {untagged} untagged")
+        # Show which templates were used
+        from collections import Counter
+        tmpl_usage = Counter(v for v in hook_template_map.values() if v != "ORIGINAL")
+        if tmpl_usage:
+            print(f"  Templates used: {dict(tmpl_usage)}")
 
     # Score them
     db_hooks = research_data["hook_patterns"]

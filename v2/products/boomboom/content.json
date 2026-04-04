@@ -27,7 +27,7 @@
           {
             "code": "TH1-a",
             "tag": "ON CAMERA",
-            "text": "\"I keep seeing this thing all over TikTok and I finally ordered one and I have no idea what it's gonna do.\""
+            "text": "\"You want to see something crazy.\""
           },
           {
             "code": "TH1-b",
@@ -38,7 +38,7 @@
           {
             "code": "TH1-c",
             "tag": "ON CAMERA",
-            "text": "\"OK it says just… breathe in? That's it?\""
+            "text": "\"My friend sent me this little stick and told me to just breathe in. That's it. Just breathe.\""
           },
           {
             "code": "TH1-d",
@@ -67,7 +67,8 @@
             "tag": "ON CAMERA",
             "text": "\"I'm linking it. Go.\""
           }
-        ]
+        ],
+        "hook_template": "HT10"
       },
       {
         "code": "TH2",
@@ -91,12 +92,12 @@
           {
             "code": "TH2-a",
             "tag": "ON CAMERA",
-            "text": "\"If you can't breathe through your nose right now — I need you to hear this.\""
+            "text": "\"Stop mouth breathing through the night. It's wrecking your sleep.\""
           },
           {
             "code": "TH2-b",
             "tag": "ON CAMERA",
-            "text": "\"I've been congested for like four days. I couldn't sleep. I was mouth breathing all night. I tried everything.\""
+            "text": "\"I was doing it for four days straight. Could not sleep. My throat was destroyed every morning.\""
           },
           {
             "code": "TH2-c",
@@ -119,7 +120,8 @@
             "tag": "ON CAMERA",
             "text": "\"I just ordered a bunch more. I'm not doing that again. Link's right here — seriously.\""
           }
-        ]
+        ],
+        "hook_template": "HT1"
       },
       {
         "code": "TH3",
@@ -143,7 +145,7 @@
           {
             "code": "TH3-a",
             "tag": "ON CAMERA",
-            "text": "\"Watch my face. Ten seconds.\""
+            "text": "\"Do you see this? Now watch what happens.\""
           },
           {
             "code": "TH3-b",
@@ -178,7 +180,8 @@
             "tag": "ON CAMERA",
             "text": "\"I'll link it.\""
           }
-        ]
+        ],
+        "hook_template": "HT7"
       },
       {
         "code": "TH4",
@@ -202,7 +205,7 @@
           {
             "code": "TH4-a",
             "tag": "ON CAMERA",
-            "text": "\"Tell me you're a tired mom without telling me you're a tired mom.\""
+            "text": "\"I used to literally dread waking up congested every morning.\""
           },
           {
             "code": "TH4-b",
@@ -213,7 +216,7 @@
           {
             "code": "TH4-c",
             "tag": "ON CAMERA",
-            "text": "\"This is the only thing getting me through the day right now.\""
+            "text": "\"Like I would wake up and already know the whole day was gonna be a fog.\""
           },
           {
             "code": "TH4-d",
@@ -231,7 +234,8 @@
             "tag": "ON CAMERA",
             "text": "\"Better than coffee. I keep it in my pocket all day. I'm linking it.\""
           }
-        ]
+        ],
+        "hook_template": "HT5"
       },
       {
         "code": "TH5",
@@ -255,12 +259,12 @@
           {
             "code": "TH5-a",
             "tag": "ON CAMERA",
-            "text": "\"OK I finally ordered the thing that everyone on TikTok won't stop talking about.\""
+            "text": "\"People don't realize what this little stick actually does to your sinuses.\""
           },
           {
             "code": "TH5-b",
             "tag": "ON CAMERA",
-            "text": "\"Ten million sold. Shark Tank. Every other video on my For You Page. I was like there's no way this is real.\""
+            "text": "\"Ten million sold. It was on Shark Tank. And I was like OK fine, I'll try it.\""
           },
           {
             "code": "TH5-c",
@@ -283,7 +287,8 @@
             "tag": "ON CAMERA",
             "text": "\"I already ordered three more. I hate when TikTok is right. Link's right here.\""
           }
-        ]
+        ],
+        "hook_template": "HT3"
       }
     ],
     "broll": [
@@ -414,23 +419,23 @@
           "rank": 1,
           "weighted_score": 248616
         },
-        "hook": "I keep seeing this thing all over TikTok and I finally ordered one and I have no idea what it's gonna do.",
+        "hook": "You want to see something crazy.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
-            "timestamp": "[0:00-0:04]",
+            "timestamp": "[0:00-0:02]",
             "shot_ref": "TH1 MEDIUM",
-            "content": "ON CAMERA: \"I keep seeing this thing all over TikTok and I finally ordered one and I have no idea what it's gonna do.\""
+            "content": "ON CAMERA: \"You want to see something crazy.\""
           },
           {
-            "timestamp": "[0:04-0:07]",
+            "timestamp": "[0:02-0:05]",
             "shot_ref": "TH1 CLOSE-UP",
             "content": "[Opens package, pulls out stick, looks at it skeptically]"
           },
           {
-            "timestamp": "[0:07-0:09]",
+            "timestamp": "[0:05-0:09]",
             "shot_ref": "TH1 MEDIUM",
-            "content": "ON CAMERA: \"OK it says just… breathe in? That's it?\""
+            "content": "ON CAMERA: \"My friend sent me this little stick and told me to just breathe in. That's it.\""
           },
           {
             "timestamp": "[0:09-0:12]",
@@ -475,7 +480,8 @@
             "timestamp": "[0:22-0:24]",
             "text": "Link below ⬇️"
           }
-        ]
+        ],
+        "hook_template": "HT10"
       },
       {
         "label": "HERO VIDEO 2",
@@ -485,18 +491,18 @@
           "rank": 2,
           "weighted_score": 181666
         },
-        "hook": "If you can't breathe through your nose right now — I need you to hear this.",
+        "hook": "Stop mouth breathing through the night. It's wrecking your sleep.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
             "timestamp": "[0:00-0:03]",
             "shot_ref": "TH2 CLOSE-UP",
-            "content": "ON CAMERA: \"If you can't breathe through your nose right now — I need you to hear this.\""
+            "content": "ON CAMERA: \"Stop mouth breathing through the night. It's wrecking your sleep.\""
           },
           {
             "timestamp": "[0:03-0:07]",
             "shot_ref": "TH2 MEDIUM",
-            "content": "ON CAMERA: \"I've been congested for like four days. Couldn't sleep. Mouth breathing all night. Tried everything.\""
+            "content": "ON CAMERA: \"I was doing it four days straight. Couldn't sleep. Throat destroyed every morning.\""
           },
           {
             "timestamp": "[0:07-0:09]",
@@ -536,7 +542,8 @@
             "timestamp": "[0:17-0:22]",
             "text": "ordered more. Link below ⬇️"
           }
-        ]
+        ],
+        "hook_template": "HT1"
       },
       {
         "label": "HERO VIDEO 3",
@@ -546,13 +553,13 @@
           "rank": 3,
           "weighted_score": 138457
         },
-        "hook": "Watch my face. Ten seconds.",
+        "hook": "Do you see this? Now watch what happens.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
             "timestamp": "[0:00-0:02]",
             "shot_ref": "TH3 CLOSE-UP",
-            "content": "ON CAMERA: \"Watch my face. Ten seconds.\""
+            "content": "ON CAMERA: \"Do you see this? Now watch what happens.\""
           },
           {
             "timestamp": "[0:02-0:04]",
@@ -602,7 +609,8 @@
             "timestamp": "[0:19-0:21]",
             "text": "10M sold 🦈 Link below"
           }
-        ]
+        ],
+        "hook_template": "HT7"
       },
       {
         "label": "HERO VIDEO 4",
@@ -612,13 +620,13 @@
           "rank": 4,
           "weighted_score": 103287
         },
-        "hook": "Tell me you're a tired mom without telling me you're a tired mom.",
+        "hook": "I used to literally dread waking up congested every morning.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
             "timestamp": "[0:00-0:03]",
             "shot_ref": "TH4 MEDIUM",
-            "content": "ON CAMERA: \"Tell me you're a tired mom without telling me you're a tired mom.\""
+            "content": "ON CAMERA: \"I used to literally dread waking up congested every morning.\""
           },
           {
             "timestamp": "[0:03-0:05]",
@@ -628,7 +636,7 @@
           {
             "timestamp": "[0:05-0:07]",
             "shot_ref": "TH4 MEDIUM",
-            "content": "ON CAMERA: \"This is the only thing getting me through the day right now.\""
+            "content": "ON CAMERA: \"I'd wake up and already know the whole day was gonna be a fog.\""
           },
           {
             "timestamp": "[0:07-0:10]",
@@ -663,7 +671,8 @@
             "timestamp": "[0:16-0:20]",
             "text": "Link below ⬇️"
           }
-        ]
+        ],
+        "hook_template": "HT5"
       },
       {
         "label": "HERO VIDEO 5",
@@ -673,18 +682,18 @@
           "rank": 7,
           "weighted_score": 63215
         },
-        "hook": "OK I finally ordered the thing that everyone on TikTok won't stop talking about.",
+        "hook": "People don't realize what this little stick actually does to your sinuses.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
             "timestamp": "[0:00-0:04]",
             "shot_ref": "TH5 MEDIUM",
-            "content": "ON CAMERA: \"OK I finally ordered the thing that everyone on TikTok won't stop talking about.\""
+            "content": "ON CAMERA: \"People don't realize what this little stick actually does to your sinuses.\""
           },
           {
             "timestamp": "[0:04-0:08]",
             "shot_ref": "TH5 MEDIUM",
-            "content": "ON CAMERA: \"Ten million sold. Shark Tank. Every other video on my For You Page. I was like there's no way.\""
+            "content": "ON CAMERA: \"Ten million sold. Shark Tank. I was like OK fine, I'll try it.\""
           },
           {
             "timestamp": "[0:08-0:10]",
@@ -724,7 +733,8 @@
             "timestamp": "[0:17-0:22]",
             "text": "I hate when TikTok is right 😤 Link below"
           }
-        ]
+        ],
+        "hook_template": "HT3"
       }
     ],
     "remixes": [
@@ -893,11 +903,11 @@
         "#tiktokviral"
       ],
       "captions": [
-        "I had NO idea what this was gonna do 😳 #boomboom #nasalstick #tiktokmademebuyit",
-        "4 days congested. one breath fixed it. 🤧 #boomboom #congestionrelief #sinusrelief",
-        "watch my face change in 10 seconds 👀 #boomboom #beforeandafter #nasalstick",
-        "tired mom hack that actually works 😩✨ #momlife #boomboom #momhack",
-        "I hate when TikTok is right 😤 #boomboom #tiktokmademebuyit #sharktank"
+        "you wanna see something crazy 😳 #boomboom #nasalstick #tiktokmademebuyit",
+        "stop mouth breathing through the night 🛑 #boomboom #congestionrelief #sinusrelief",
+        "do you see this? watch what happens 👀 #boomboom #beforeandafter #nasalstick",
+        "I used to dread waking up congested every morning 😩 #momlife #boomboom #momhack",
+        "people don't realize what this does to your sinuses 🤯 #boomboom #tiktokmademebuyit #sharktank"
       ],
       "schedule": [
         "Day 1: Hero 1 (Blind Unbox) — shock/curiosity #1, strongest scroll-stop",
