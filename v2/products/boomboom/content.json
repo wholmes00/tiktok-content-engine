@@ -2,13 +2,13 @@
   "shoot_guide": {
     "title": "SHOOT GUIDE",
     "subtitle": "BoomBoom Nasal Stick",
-    "product_summary": "BoomBoom Nasal Stick — 5 Heroes, 5 Remixes (3 VO + 2 No-Voice)",
+    "product_summary": "BoomBoom Nasal Stick — 5 Heroes, 5 B-Roll Videos (3 VO + 2 No-Voice)",
     "tagline": "10 videos from one shoot — here's everything you need to capture",
     "heroes": [
       {
         "code": "TH1",
         "product": "BOOMBOOM",
-        "title": "The Blind Sniff Test",
+        "title": "The Blind Unbox",
         "content_angle": "shock_curiosity",
         "angle_evidence": {
           "rank": 1,
@@ -18,61 +18,61 @@
           "video_count": 7
         },
         "notes": [
-          "She does NOT know what scent she's about to try. Cover the label or have someone hand it to her.",
-          "Camera tight on her face for the reaction. This is the money shot — don't cut away.",
-          "Let her react for a full 3 seconds before she says anything. The face sells it.",
-          "Product label revealed AFTER the reaction — not before."
+          "She ordered this off TikTok and has no idea what to expect. Unboxing energy.",
+          "Camera tight on her face for the first hit. Let the reaction breathe — don't rush to the next line.",
+          "Product label revealed AFTER the reaction, not before.",
+          "Film at kitchen counter or bathroom counter. Natural light."
         ],
         "lines": [
           {
             "code": "TH1-a",
             "tag": "ON CAMERA",
-            "text": "\"My friend just handed me this and said 'breathe in' and won't tell me what it is.\""
+            "text": "\"I keep seeing this thing all over TikTok and I finally ordered one and I have no idea what it's gonna do.\""
           },
           {
             "code": "TH1-b",
             "tag": "ON CAMERA",
-            "text": "[looks at the stick suspiciously, sniffs the outside]",
+            "text": "[opens the package, pulls out the stick, looks at it skeptically]",
             "is_direction": true
           },
           {
             "code": "TH1-c",
             "tag": "ON CAMERA",
-            "text": "\"OK… here we go.\""
+            "text": "\"OK it says just… breathe in? That's it?\""
           },
           {
             "code": "TH1-d",
             "tag": "ON CAMERA",
-            "text": "[takes a deep hit — eyes go wide, jaw drops, grabs the counter]",
+            "text": "[takes a hit — eyes go wide, grabs the counter, steps back]",
             "is_direction": true
           },
           {
             "code": "TH1-e",
             "tag": "ON CAMERA",
-            "text": "\"WHAT. What is— oh my God. It's like someone pressure-washed the inside of my head.\""
+            "text": "\"Oh my God. OH. That is… it's like someone opened every window in my head at the same time.\""
           },
           {
             "code": "TH1-f",
             "tag": "ON CAMERA",
-            "text": "[turns the stick around to read the label for the first time]",
+            "text": "[reads the label]",
             "is_direction": true
           },
           {
             "code": "TH1-g",
             "tag": "ON CAMERA",
-            "text": "\"BoomBoom? This little thing? It's just essential oils? Bro. I need like ten of these.\""
+            "text": "\"It's just essential oils? Menthol and eucalyptus? This little thing? I need to order more of these right now.\""
           },
           {
             "code": "TH1-h",
             "tag": "ON CAMERA",
-            "text": "\"Link. Now. Go.\""
+            "text": "\"I'm linking it. Go.\""
           }
         ]
       },
       {
         "code": "TH2",
         "product": "BOOMBOOM",
-        "title": "The Allergy Season Panic",
+        "title": "The Can't Sleep Congestion",
         "content_angle": "fear_urgency",
         "angle_evidence": {
           "rank": 2,
@@ -82,49 +82,49 @@
           "video_count": 4
         },
         "notes": [
-          "She looks genuinely congested or tired at the start. Real 'I can't breathe' energy.",
-          "Urgency is the driver — everyone she knows is stuffed up, she was too, until this.",
-          "Show the product as her survival tool, not a nice-to-have.",
-          "Keep the energy slightly panicked at the top, then relieved after the hit."
+          "She looks like she hasn't slept. Real tired, congested energy — not performed.",
+          "Film in bedroom or on the couch. Tissue box nearby. She's been dealing with this.",
+          "Urgency is the driver — she's been suffering and this is the thing that finally worked.",
+          "The relief moment on camera needs to land. Give it space."
         ],
         "lines": [
           {
             "code": "TH2-a",
             "tag": "ON CAMERA",
-            "text": "\"If your allergies are destroying you right now, stop scrolling.\""
+            "text": "\"If you can't breathe through your nose right now — I need you to hear this.\""
           },
           {
             "code": "TH2-b",
             "tag": "ON CAMERA",
-            "text": "\"I literally could not breathe through my nose for three days. Three. Days.\""
+            "text": "\"I've been congested for like four days. I couldn't sleep. I was mouth breathing all night. I tried everything.\""
           },
           {
             "code": "TH2-c",
             "tag": "ON CAMERA",
-            "text": "\"My friend gave me this little stick and said just try it.\""
+            "text": "\"Then I remembered I had this little stick someone told me about on TikTok.\""
           },
           {
             "code": "TH2-d",
             "tag": "ON CAMERA",
-            "text": "[takes a hit — immediate visible relief, deep breath through nose]",
+            "text": "[grabs BoomBoom from nightstand, takes a hit]",
             "is_direction": true
           },
           {
             "code": "TH2-e",
             "tag": "ON CAMERA",
-            "text": "\"I can BREATHE. Like right now. That was instant. It's menthol and eucalyptus and peppermint.\""
+            "text": "\"Oh my God. I can breathe. Like RIGHT NOW. That was instant. It's menthol and eucalyptus.\""
           },
           {
             "code": "TH2-f",
             "tag": "ON CAMERA",
-            "text": "\"I bought six of these. I'm not going through that again. Link's right here — go before allergy season gets worse.\""
+            "text": "\"I just ordered a bunch more. I'm not doing that again. Link's right here — seriously.\""
           }
         ]
       },
       {
         "code": "TH3",
         "product": "BOOMBOOM",
-        "title": "The Stuffed vs. Clear",
+        "title": "The Before and After",
         "content_angle": "before_after",
         "angle_evidence": {
           "rank": 3,
@@ -134,56 +134,56 @@
           "video_count": 16
         },
         "notes": [
-          "This is a before/after video. The transformation IS the content.",
-          "Start with her visibly congested — mouth breathing, puffy, tired eyes.",
-          "Time the 'after' moment on camera. Don't cut. Let the viewer watch it happen live.",
-          "Split-screen energy even if it's not literally split screen. The contrast has to be obvious."
+          "This is a transformation video. The before and after IS the content.",
+          "Start stuffed up — mouth breathing, puffy, tired. Don't fake it. If she's not congested, film this one when she actually is.",
+          "One continuous shot for the transformation. No cuts between before and after.",
+          "Film at bathroom mirror or kitchen counter. Close on face."
         ],
         "lines": [
           {
             "code": "TH3-a",
             "tag": "ON CAMERA",
-            "text": "\"Watch what happens to my face in the next ten seconds.\""
+            "text": "\"Watch my face. Ten seconds.\""
           },
           {
             "code": "TH3-b",
             "tag": "ON CAMERA",
-            "text": "[visibly congested — breathing through mouth, looks miserable]",
+            "text": "[visibly congested — breathing through mouth, puffy]",
             "is_direction": true
           },
           {
             "code": "TH3-c",
             "tag": "ON CAMERA",
-            "text": "[picks up BoomBoom stick, takes one long hit through each nostril]",
+            "text": "[picks up BoomBoom, takes a slow hit through each nostril]",
             "is_direction": true
           },
           {
             "code": "TH3-d",
             "tag": "ON CAMERA",
-            "text": "[holds breath for a beat — then exhales slowly through nose, eyes close in relief]",
+            "text": "[holds for a beat — then exhales long and slow through nose, eyes close, shoulders drop]",
             "is_direction": true
           },
           {
             "code": "TH3-e",
             "tag": "ON CAMERA",
-            "text": "\"There it is. That's the face of someone who can breathe again.\""
+            "text": "\"That's it. That's the difference. Before and after. One breath.\""
           },
           {
             "code": "TH3-f",
             "tag": "ON CAMERA",
-            "text": "\"It's just a little essential oil stick. Menthol, eucalyptus, peppermint. One breath and you're back.\""
+            "text": "\"It's an essential oil stick. Menthol, eucalyptus, peppermint. They've sold like ten million of these. It was on Shark Tank.\""
           },
           {
             "code": "TH3-g",
             "tag": "ON CAMERA",
-            "text": "\"Ten million sold. Shark Tank. I'll link it.\""
+            "text": "\"I'll link it.\""
           }
         ]
       },
       {
         "code": "TH4",
         "product": "BOOMBOOM",
-        "title": "The Gym Pre-Workout Hack",
+        "title": "The Tired Mom Reset",
         "content_angle": "problem_solution",
         "angle_evidence": {
           "rank": 4,
@@ -193,49 +193,50 @@
           "video_count": 12
         },
         "notes": [
-          "Gym setting or workout clothes visible. She's about to work out.",
-          "The problem is specific: can't breathe properly during cardio and heavy lifts.",
-          "Product reveal at the solution moment — not before.",
-          "Keep it fast. Problem → solution → proof → link."
+          "She's exhausted. Real mom energy — not cute exhaustion, actual tiredness.",
+          "Film on the couch or in the kitchen. She's been going all day.",
+          "Product is her reset — she reaches for it like it's routine.",
+          "Keep the tone light and relatable. This is a hack she's sharing, not a sales pitch."
         ],
         "lines": [
           {
             "code": "TH4-a",
             "tag": "ON CAMERA",
-            "text": "\"The pre-workout hack nobody talks about.\""
+            "text": "\"Tell me you're a tired mom without telling me you're a tired mom.\""
           },
           {
             "code": "TH4-b",
             "tag": "ON CAMERA",
-            "text": "\"I kept getting gassed out on cardio because I couldn't breathe through my nose. Like my lungs were fine but my nose was just… shut.\""
+            "text": "[exhausted face, slumped on couch or leaning on counter]",
+            "is_direction": true
           },
           {
             "code": "TH4-c",
             "tag": "ON CAMERA",
-            "text": "\"Then someone at my gym showed me this.\""
+            "text": "\"This is the only thing getting me through the day right now.\""
           },
           {
             "code": "TH4-d",
             "tag": "ON CAMERA",
-            "text": "[pulls BoomBoom from gym bag, takes a hit]",
+            "text": "[reaches for BoomBoom, takes a hit, visible relief — eyes widen, deep breath]",
             "is_direction": true
           },
           {
             "code": "TH4-e",
             "tag": "ON CAMERA",
-            "text": "\"Instantly. Like everything just opened. It's menthol and eucalyptus — you just breathe in right before your set.\""
+            "text": "\"It's this little nasal stick with essential oils. You just breathe in and it's like someone turned the lights on in your brain.\""
           },
           {
             "code": "TH4-f",
             "tag": "ON CAMERA",
-            "text": "\"It's like five bucks. I'm linking it.\""
+            "text": "\"Better than coffee. I keep it in my pocket all day. I'm linking it.\""
           }
         ]
       },
       {
         "code": "TH5",
         "product": "BOOMBOOM",
-        "title": "The Mom Who Tried Everything",
+        "title": "The TikTok Made Me Buy It",
         "content_angle": "social_proof",
         "angle_evidence": {
           "rank": 7,
@@ -245,21 +246,21 @@
           "video_count": 2
         },
         "notes": [
-          "This is a stitch/reply energy video — she's responding to the hype around this product.",
-          "Start skeptical. She saw it everywhere, finally tried it, now she gets it.",
-          "The social proof is the driver: millions sold, Shark Tank, everyone on TikTok talking about it.",
-          "Her personal reaction validates what everyone else is saying."
+          "Skeptic energy at the start — she saw it everywhere, was doubtful, finally ordered it.",
+          "Film at kitchen counter or living room. Product still in shipping packaging if possible.",
+          "The payoff is that she becomes a believer. Her reaction validates everyone else's hype.",
+          "End with genuine 'OK TikTok was right' energy."
         ],
         "lines": [
           {
             "code": "TH5-a",
             "tag": "ON CAMERA",
-            "text": "\"OK I finally tried the thing that everyone on TikTok won't shut up about.\""
+            "text": "\"OK I finally ordered the thing that everyone on TikTok won't stop talking about.\""
           },
           {
             "code": "TH5-b",
             "tag": "ON CAMERA",
-            "text": "\"I kept seeing this little nasal stick everywhere. Ten million sold. Was on Shark Tank. And I was like… it can't be that serious.\""
+            "text": "\"Ten million sold. Shark Tank. Every other video on my For You Page. I was like there's no way this is real.\""
           },
           {
             "code": "TH5-c",
@@ -270,17 +271,17 @@
           {
             "code": "TH5-d",
             "tag": "ON CAMERA",
-            "text": "\"Oh. Oh no. OK I get it now.\""
+            "text": "\"Oh. Oh no.\""
           },
           {
             "code": "TH5-e",
             "tag": "ON CAMERA",
-            "text": "\"It's like someone turned on the AC inside my nose. I can feel it in my whole face.\""
+            "text": "\"OK yeah. I get it. That is… wow. It's like AC for your nose.\""
           },
           {
             "code": "TH5-f",
             "tag": "ON CAMERA",
-            "text": "\"Yeah. I'm linking this. I already ordered three more. I hate when TikTok is right.\""
+            "text": "\"I already ordered three more. I hate when TikTok is right. Link's right here.\""
           }
         ]
       }
@@ -289,403 +290,421 @@
       {
         "code": "B1",
         "product": "BOOMBOOM",
-        "description": "Product tube close-up on flat surface, brand name and cap visible. Clean background."
+        "phase": "1_SEALED",
+        "description": "Opening the shipping package at kitchen table. First look at the product. Unboxing energy — film this FIRST before anything else."
       },
       {
         "code": "B2",
         "product": "BOOMBOOM",
-        "description": "Uncapping the stick. Slow, satisfying cap removal. Close on hands."
+        "phase": "1_SEALED",
+        "description": "Outer packaging close-up while still sealed. Brand name visible. Clean counter background."
       },
       {
         "code": "B3",
         "product": "BOOMBOOM",
-        "description": "Stick held up to nose, side angle. Deep inhale. Close on face — capture the exact moment."
+        "phase": "2_PRODUCT_VISIBLE",
+        "description": "Product tube close-up on kitchen counter. Brand name and cap visible. Clean background."
       },
       {
         "code": "B4",
         "product": "BOOMBOOM",
-        "description": "Multiple scents laid out on flat surface — variety pack if she has more than one."
+        "phase": "2_PRODUCT_VISIBLE",
+        "description": "Back of packaging or label — ingredients visible (menthol, eucalyptus, peppermint)."
       },
       {
         "code": "B5",
         "product": "BOOMBOOM",
-        "description": "Back of packaging or label — ingredients visible (menthol, eucalyptus, peppermint)."
+        "phase": "2_PRODUCT_VISIBLE",
+        "description": "Size comparison — stick next to lipstick, pen, or keys on counter to show how small it is."
       },
       {
         "code": "B6",
         "product": "BOOMBOOM",
-        "description": "Size comparison — stick next to lipstick, pen, or keys to show how small it is."
+        "phase": "2_PRODUCT_VISIBLE",
+        "description": "Stick on nightstand next to phone/alarm clock. Morning light through window."
       },
       {
         "code": "B7",
         "product": "BOOMBOOM",
-        "description": "Rolling the stick between fingers. Texture and portability moment."
+        "phase": "2_PRODUCT_VISIBLE",
+        "description": "Before face: mouth breathing on couch, looking congested and tired. Tissue box nearby. (Film before using the product.)"
       },
       {
         "code": "B8",
         "product": "BOOMBOOM",
-        "description": "Dropping the stick into gym bag or purse. Quick, casual."
+        "phase": "3_IN_USE",
+        "description": "Uncapping the stick. Slow, satisfying cap removal. Close on her hands."
       },
       {
         "code": "B9",
         "product": "BOOMBOOM",
-        "description": "Pulling it from pocket mid-conversation — like she always has it on her."
+        "phase": "3_IN_USE",
+        "description": "Rolling the stick between fingers. Texture and portability close-up."
       },
       {
         "code": "B10",
         "product": "BOOMBOOM",
-        "description": "Stick on nightstand next to phone/alarm clock. Morning light context."
+        "phase": "3_IN_USE",
+        "description": "Stick held up to nose, side angle. Deep inhale. Close on face — capture the exact moment."
       },
       {
         "code": "B11",
         "product": "BOOMBOOM",
-        "description": "Before/after face: first shot mouth-breathing and miserable, second shot deep nasal inhale with eyes closed."
+        "phase": "3_IN_USE",
+        "description": "The shock face — eyes wide, jaw drops after first hit. Close on face at counter."
       },
       {
         "code": "B12",
         "product": "BOOMBOOM",
-        "description": "Post-workout context — catching her breath, reaches for stick from gym bag."
+        "phase": "3_IN_USE",
+        "description": "The relief exhale — long slow breath out through nose, shoulders drop. Bathroom mirror or kitchen."
       },
       {
         "code": "B13",
         "product": "BOOMBOOM",
-        "description": "The shock face — eyes wide, jaw drops, hand goes to mouth after first hit."
+        "phase": "3_IN_USE",
+        "description": "After face: same spot as B7 on couch, deep nasal breath with eyes closed, visible relief. (The 'after' to B7's 'before'.)"
       },
       {
         "code": "B14",
         "product": "BOOMBOOM",
-        "description": "The relief exhale — long slow breath out through nose, visible relaxation in face."
+        "phase": "4_LIFESTYLE",
+        "description": "Dropping the stick into her purse or bag by the front door. Quick, casual."
       },
       {
         "code": "B15",
         "product": "BOOMBOOM",
-        "description": "Handing the stick to someone else — their first reaction too."
+        "phase": "4_LIFESTYLE",
+        "description": "Pulling it from her pocket or from the counter — like she always has it within reach."
       }
     ],
     "voiceovers": [
       {
         "code": "VO1",
         "product": "BOOMBOOM",
-        "script": "OK so everyone kept telling me about this little nasal stick. Like everyone. TikTok, my gym, my friend group. Finally tried it. You just breathe in and it's like someone flipped a switch in your sinuses. Menthol, eucalyptus, peppermint — all natural. They sold over ten million of these. It was on Shark Tank. And honestly? I get the hype now. I keep one in my bag and one on my nightstand. Link's right here."
+        "content_angle": "before_after",
+        "script": "I was so congested I couldn't breathe through my nose for days. Mouth breathing all night. Miserable. Then I tried this little essential oil stick I found on TikTok. One breath in and it was like everything just opened. Like before and after are two different people. Menthol, eucalyptus, peppermint. They've sold over ten million of these. It was on Shark Tank. I keep one on my nightstand now. Link's right here."
       },
       {
         "code": "VO2",
         "product": "BOOMBOOM",
-        "script": "Allergy season has been absolutely wrecking me this year. Like I could not breathe through my nose for days. And then someone handed me this little essential oil stick called BoomBoom. One breath and everything just… opened. Instant. I bought a six pack because I'm not going back to mouth breathing. If your sinuses are fighting you right now — this. Link below."
+        "content_angle": "fear_urgency",
+        "script": "If you're congested right now you need to hear this. I could not breathe through my nose for like four days. I tried everything. Then I found this little nasal stick called BoomBoom on TikTok. One breath and everything just opened up. Instant. It's menthol and eucalyptus and peppermint. I ordered a bunch because I'm not going through that again. If your sinuses are wrecking you right now — get this. Link below."
       },
       {
         "code": "VO3",
         "product": "BOOMBOOM",
-        "script": "Things that actually changed my gym sessions. This little nasal stick. You breathe in right before a set and your airways just open up completely. Menthol, eucalyptus, peppermint. It costs like five dollars and it lasts a month. I used to get gassed out because I couldn't breathe through my nose. Not anymore. I'll link it."
+        "content_angle": "problem_solution",
+        "script": "Being a tired mom is one thing. Being a tired mom who can't breathe is something else. I was dragging all day and someone on TikTok said try this little nasal stick. You breathe in and it's like someone turned the lights back on. Menthol, eucalyptus, peppermint. It costs like five dollars and it lasts a month. I keep it in my pocket all day now. Better than coffee honestly. I'll link it."
       }
     ]
   },
   "edit_guide": {
     "creator_name": "MICHELLE'S BOOMBOOM SHOOT",
-    "product_summary": "BoomBoom Nasal Stick — 5 Heroes, 3 VO Remixes, 2 No-Voice Remixes",
-    "video_counts": "5 Hero Videos + 5 Remix Videos — Production Ready",
+    "product_summary": "BoomBoom Nasal Stick — 5 Heroes, 3 VO B-Roll, 2 No-Voice B-Roll",
+    "video_counts": "5 Hero Videos + 5 B-Roll Videos — Production Ready",
     "analysis_count": 122,
     "date": "April 2026",
     "heroes": [
       {
         "label": "HERO VIDEO 1",
-        "title": "Hero 1 — The Blind Sniff Test",
+        "title": "Hero 1 — The Blind Unbox",
         "content_angle": "shock_curiosity",
         "angle_evidence": {
           "rank": 1,
           "weighted_score": 248616
         },
-        "hook": "My friend just handed me this and said 'breathe in' and won't tell me what it is.",
+        "hook": "I keep seeing this thing all over TikTok and I finally ordered one and I have no idea what it's gonna do.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
-            "timestamp": "[0:00-0:03]",
+            "timestamp": "[0:00-0:04]",
             "shot_ref": "TH1 MEDIUM",
-            "content": "ON CAMERA: \"My friend just handed me this and said 'breathe in' and won't tell me what it is.\""
+            "content": "ON CAMERA: \"I keep seeing this thing all over TikTok and I finally ordered one and I have no idea what it's gonna do.\""
           },
           {
-            "timestamp": "[0:03-0:05]",
+            "timestamp": "[0:04-0:07]",
             "shot_ref": "TH1 CLOSE-UP",
-            "content": "[Looks at stick suspiciously, sniffs the outside]"
+            "content": "[Opens package, pulls out stick, looks at it skeptically]"
           },
           {
-            "timestamp": "[0:05-0:06]",
+            "timestamp": "[0:07-0:09]",
             "shot_ref": "TH1 MEDIUM",
-            "content": "ON CAMERA: \"OK… here we go.\""
+            "content": "ON CAMERA: \"OK it says just… breathe in? That's it?\""
           },
           {
-            "timestamp": "[0:06-0:09]",
+            "timestamp": "[0:09-0:12]",
             "shot_ref": "TH1 CLOSE-UP — HOLD ON FACE",
-            "content": "[Takes a deep hit — eyes go wide, jaw drops. DO NOT CUT. Hold on the reaction for 3 full seconds.]"
+            "content": "[Takes a hit — eyes go wide, grabs counter, steps back. HOLD the reaction 3 seconds.]"
           },
           {
-            "timestamp": "[0:09-0:13]",
+            "timestamp": "[0:12-0:16]",
             "shot_ref": "TH1 MEDIUM",
-            "content": "ON CAMERA: \"WHAT. What is— oh my God. It's like someone pressure-washed the inside of my head.\""
+            "content": "ON CAMERA: \"Oh my God. OH. It's like someone opened every window in my head at the same time.\""
           },
           {
-            "timestamp": "[0:13-0:15]",
-            "shot_ref": "B-ROLL B1",
-            "content": "[Turns stick around to read label for the first time — close-up on brand name]"
+            "timestamp": "[0:16-0:18]",
+            "shot_ref": "B-ROLL B4",
+            "content": "[Reads the label — close-up on ingredients]"
           },
           {
-            "timestamp": "[0:15-0:20]",
+            "timestamp": "[0:18-0:22]",
             "shot_ref": "TH1 MEDIUM",
-            "content": "ON CAMERA: \"BoomBoom? This little thing? It's just essential oils? Bro. I need like ten of these.\""
+            "content": "ON CAMERA: \"It's just essential oils? This little thing? I need to order more of these right now.\""
           },
           {
-            "timestamp": "[0:20-0:22]",
+            "timestamp": "[0:22-0:24]",
             "shot_ref": "TH1 CLOSE-UP",
-            "content": "ON CAMERA: \"Link. Now. Go.\""
+            "content": "ON CAMERA: \"I'm linking it. Go.\""
           }
         ],
         "onscreen_text": [
           {
-            "timestamp": "[0:00-0:03]",
-            "text": "she won't tell me what it is 😳"
+            "timestamp": "[0:00-0:04]",
+            "text": "TikTok made me order this 😳"
           },
           {
-            "timestamp": "[0:06-0:09]",
+            "timestamp": "[0:09-0:12]",
             "text": "WAIT FOR IT"
           },
           {
-            "timestamp": "[0:15-0:20]",
-            "text": "10M sold. Shark Tank. essential oils only."
+            "timestamp": "[0:18-0:22]",
+            "text": "just essential oils?! 10M sold."
           },
           {
-            "timestamp": "[0:20-0:22]",
+            "timestamp": "[0:22-0:24]",
             "text": "Link below ⬇️"
           }
         ]
       },
       {
         "label": "HERO VIDEO 2",
-        "title": "Hero 2 — The Allergy Season Panic",
+        "title": "Hero 2 — The Can't Sleep Congestion",
         "content_angle": "fear_urgency",
         "angle_evidence": {
           "rank": 2,
           "weighted_score": 181666
         },
-        "hook": "If your allergies are destroying you right now, stop scrolling.",
+        "hook": "If you can't breathe through your nose right now — I need you to hear this.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
             "timestamp": "[0:00-0:03]",
             "shot_ref": "TH2 CLOSE-UP",
-            "content": "ON CAMERA: \"If your allergies are destroying you right now, stop scrolling.\""
+            "content": "ON CAMERA: \"If you can't breathe through your nose right now — I need you to hear this.\""
           },
           {
-            "timestamp": "[0:03-0:06]",
+            "timestamp": "[0:03-0:07]",
             "shot_ref": "TH2 MEDIUM",
-            "content": "ON CAMERA: \"I literally could not breathe through my nose for three days. Three. Days.\""
+            "content": "ON CAMERA: \"I've been congested for like four days. Couldn't sleep. Mouth breathing all night. Tried everything.\""
           },
           {
-            "timestamp": "[0:06-0:08]",
+            "timestamp": "[0:07-0:09]",
             "shot_ref": "TH2 MEDIUM",
-            "content": "ON CAMERA: \"My friend gave me this little stick and said just try it.\""
+            "content": "ON CAMERA: \"Then I remembered this little stick someone told me about on TikTok.\""
           },
           {
-            "timestamp": "[0:08-0:11]",
-            "shot_ref": "B-ROLL B3 + B14",
-            "content": "[Takes a hit — immediate visible relief, deep breath through nose. Cut to relief exhale.]"
+            "timestamp": "[0:09-0:12]",
+            "shot_ref": "B-ROLL B10 + B12",
+            "content": "[Grabs BoomBoom from nightstand, takes a hit — visible relief, deep breath through nose]"
           },
           {
-            "timestamp": "[0:11-0:16]",
+            "timestamp": "[0:12-0:17]",
             "shot_ref": "TH2 ON-CAMERA",
-            "content": "ON CAMERA: \"I can BREATHE. Like right now. That was instant. Menthol and eucalyptus and peppermint.\""
+            "content": "ON CAMERA: \"Oh my God. I can breathe. Like RIGHT NOW. That was instant. Menthol and eucalyptus.\""
           },
           {
-            "timestamp": "[0:16-0:21]",
+            "timestamp": "[0:17-0:22]",
             "shot_ref": "TH2 CLOSE-UP",
-            "content": "ON CAMERA: \"I bought six of these. I'm not going through that again. Link's right here — go before allergy season gets worse.\""
+            "content": "ON CAMERA: \"I just ordered a bunch more. I'm not doing that again. Link's right here — seriously.\""
           }
         ],
         "onscreen_text": [
           {
             "timestamp": "[0:00-0:03]",
-            "text": "allergy season survival 🤧"
+            "text": "can't breathe? stop scrolling 🛑"
           },
           {
-            "timestamp": "[0:03-0:06]",
-            "text": "3 DAYS couldn't breathe"
+            "timestamp": "[0:03-0:07]",
+            "text": "4 days congested. couldn't sleep."
           },
           {
-            "timestamp": "[0:11-0:16]",
-            "text": "instant relief 😮‍💨"
+            "timestamp": "[0:12-0:17]",
+            "text": "INSTANT relief 😮‍💨"
           },
           {
-            "timestamp": "[0:16-0:21]",
-            "text": "Link below ⬇️ before it sells out"
+            "timestamp": "[0:17-0:22]",
+            "text": "ordered more. Link below ⬇️"
           }
         ]
       },
       {
         "label": "HERO VIDEO 3",
-        "title": "Hero 3 — The Stuffed vs. Clear",
+        "title": "Hero 3 — The Before and After",
         "content_angle": "before_after",
         "angle_evidence": {
           "rank": 3,
           "weighted_score": 138457
         },
-        "hook": "Watch what happens to my face in the next ten seconds.",
+        "hook": "Watch my face. Ten seconds.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
-            "timestamp": "[0:00-0:03]",
+            "timestamp": "[0:00-0:02]",
             "shot_ref": "TH3 CLOSE-UP",
-            "content": "ON CAMERA: \"Watch what happens to my face in the next ten seconds.\""
+            "content": "ON CAMERA: \"Watch my face. Ten seconds.\""
           },
           {
-            "timestamp": "[0:03-0:05]",
-            "shot_ref": "TH3 MEDIUM",
-            "content": "[Visibly congested — mouth breathing, puffy eyes, miserable]"
-          },
-          {
-            "timestamp": "[0:05-0:08]",
-            "shot_ref": "TH3 CLOSE-UP — HOLD SHOT",
-            "content": "[Picks up BoomBoom, takes one long hit through each nostril. Hold camera on face — do NOT cut.]"
-          },
-          {
-            "timestamp": "[0:08-0:11]",
-            "shot_ref": "TH3 CLOSE-UP — STILL HOLDING",
-            "content": "[Holds breath for a beat — then exhales slowly through nose, eyes close in relief. The transformation happens HERE.]"
-          },
-          {
-            "timestamp": "[0:11-0:15]",
-            "shot_ref": "TH3 MEDIUM",
-            "content": "ON CAMERA: \"There it is. That's the face of someone who can breathe again.\""
-          },
-          {
-            "timestamp": "[0:15-0:19]",
-            "shot_ref": "B-ROLL B5",
-            "content": "ON CAMERA: \"It's just a little essential oil stick. Menthol, eucalyptus, peppermint. One breath and you're back.\""
-          },
-          {
-            "timestamp": "[0:19-0:22]",
+            "timestamp": "[0:02-0:04]",
             "shot_ref": "TH3 CLOSE-UP",
-            "content": "ON CAMERA: \"Ten million sold. Shark Tank. I'll link it.\""
+            "content": "[Visibly congested — mouth breathing, puffy]"
+          },
+          {
+            "timestamp": "[0:04-0:07]",
+            "shot_ref": "TH3 CLOSE-UP — NO CUT",
+            "content": "[Picks up BoomBoom, takes slow hit through each nostril. CONTINUOUS SHOT — do not cut.]"
+          },
+          {
+            "timestamp": "[0:07-0:10]",
+            "shot_ref": "TH3 CLOSE-UP — STILL NO CUT",
+            "content": "[Holds for a beat — exhales long and slow through nose. Eyes close. Shoulders drop. Transformation happens HERE.]"
+          },
+          {
+            "timestamp": "[0:10-0:14]",
+            "shot_ref": "TH3 MEDIUM",
+            "content": "ON CAMERA: \"That's it. That's the difference. Before and after. One breath.\""
+          },
+          {
+            "timestamp": "[0:14-0:19]",
+            "shot_ref": "B-ROLL B4",
+            "content": "ON CAMERA: \"Essential oil stick. Menthol, eucalyptus, peppermint. They've sold ten million. Shark Tank.\""
+          },
+          {
+            "timestamp": "[0:19-0:21]",
+            "shot_ref": "TH3 CLOSE-UP",
+            "content": "ON CAMERA: \"I'll link it.\""
           }
         ],
         "onscreen_text": [
           {
-            "timestamp": "[0:00-0:03]",
-            "text": "watch my face change 👀"
+            "timestamp": "[0:00-0:02]",
+            "text": "watch my face 👀"
           },
           {
-            "timestamp": "[0:05-0:11]",
+            "timestamp": "[0:04-0:10]",
             "text": "⏱️ 10 seconds"
           },
           {
-            "timestamp": "[0:11-0:15]",
-            "text": "that's the difference ✨"
+            "timestamp": "[0:10-0:14]",
+            "text": "before → after. one breath."
           },
           {
-            "timestamp": "[0:19-0:22]",
+            "timestamp": "[0:19-0:21]",
             "text": "10M sold 🦈 Link below"
           }
         ]
       },
       {
         "label": "HERO VIDEO 4",
-        "title": "Hero 4 — The Gym Pre-Workout Hack",
+        "title": "Hero 4 — The Tired Mom Reset",
         "content_angle": "problem_solution",
         "angle_evidence": {
           "rank": 4,
           "weighted_score": 103287
         },
-        "hook": "The pre-workout hack nobody talks about.",
+        "hook": "Tell me you're a tired mom without telling me you're a tired mom.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
             "timestamp": "[0:00-0:03]",
-            "shot_ref": "TH4 ON-CAMERA",
-            "content": "ON CAMERA: \"The pre-workout hack nobody talks about.\""
-          },
-          {
-            "timestamp": "[0:03-0:07]",
             "shot_ref": "TH4 MEDIUM",
-            "content": "ON CAMERA: \"I kept getting gassed out on cardio because I couldn't breathe through my nose. Lungs were fine. Nose was just… shut.\""
+            "content": "ON CAMERA: \"Tell me you're a tired mom without telling me you're a tired mom.\""
           },
           {
-            "timestamp": "[0:07-0:09]",
+            "timestamp": "[0:03-0:05]",
             "shot_ref": "TH4 MEDIUM",
-            "content": "ON CAMERA: \"Then someone at my gym showed me this.\""
+            "content": "[Exhausted, slumped on couch or leaning on counter]"
           },
           {
-            "timestamp": "[0:09-0:12]",
-            "shot_ref": "B-ROLL B8 + B2",
-            "content": "[Pulls BoomBoom from gym bag, uncaps, takes a hit]"
+            "timestamp": "[0:05-0:07]",
+            "shot_ref": "TH4 MEDIUM",
+            "content": "ON CAMERA: \"This is the only thing getting me through the day right now.\""
           },
           {
-            "timestamp": "[0:12-0:17]",
+            "timestamp": "[0:07-0:10]",
+            "shot_ref": "B-ROLL B8 + B10",
+            "content": "[Reaches for BoomBoom, takes a hit — visible relief, eyes widen]"
+          },
+          {
+            "timestamp": "[0:10-0:16]",
             "shot_ref": "TH4 ON-CAMERA",
-            "content": "ON CAMERA: \"Instantly. Everything just opened. Menthol and eucalyptus — breathe in right before your set.\""
+            "content": "ON CAMERA: \"It's this little nasal stick with essential oils. You breathe in and it's like someone turned the lights on in your brain.\""
           },
           {
-            "timestamp": "[0:17-0:20]",
+            "timestamp": "[0:16-0:20]",
             "shot_ref": "TH4 CLOSE-UP",
-            "content": "ON CAMERA: \"It's like five bucks. I'm linking it.\""
+            "content": "ON CAMERA: \"Better than coffee. I keep it in my pocket all day. I'm linking it.\""
           }
         ],
         "onscreen_text": [
           {
             "timestamp": "[0:00-0:03]",
-            "text": "pre-workout hack 💪"
+            "text": "tired mom energy 😩"
           },
           {
-            "timestamp": "[0:03-0:07]",
-            "text": "couldn't breathe during cardio"
+            "timestamp": "[0:05-0:07]",
+            "text": "my daily reset ✨"
           },
           {
-            "timestamp": "[0:12-0:17]",
-            "text": "instant airway opener"
+            "timestamp": "[0:10-0:16]",
+            "text": "better than coffee ☕"
           },
           {
-            "timestamp": "[0:17-0:20]",
-            "text": "~$5 ⬇️ Link in video"
+            "timestamp": "[0:16-0:20]",
+            "text": "Link below ⬇️"
           }
         ]
       },
       {
         "label": "HERO VIDEO 5",
-        "title": "Hero 5 — The Mom Who Tried Everything",
+        "title": "Hero 5 — The TikTok Made Me Buy It",
         "content_angle": "social_proof",
         "angle_evidence": {
           "rank": 7,
           "weighted_score": 63215
         },
-        "hook": "OK I finally tried the thing that everyone on TikTok won't shut up about.",
+        "hook": "OK I finally ordered the thing that everyone on TikTok won't stop talking about.",
         "audio": "Original sound (no music)",
         "timeline": [
           {
             "timestamp": "[0:00-0:04]",
-            "shot_ref": "TH5 ON-CAMERA",
-            "content": "ON CAMERA: \"OK I finally tried the thing that everyone on TikTok won't shut up about.\""
+            "shot_ref": "TH5 MEDIUM",
+            "content": "ON CAMERA: \"OK I finally ordered the thing that everyone on TikTok won't stop talking about.\""
           },
           {
             "timestamp": "[0:04-0:08]",
             "shot_ref": "TH5 MEDIUM",
-            "content": "ON CAMERA: \"I kept seeing this little nasal stick everywhere. Ten million sold. Shark Tank. And I was like… it can't be that serious.\""
+            "content": "ON CAMERA: \"Ten million sold. Shark Tank. Every other video on my For You Page. I was like there's no way.\""
           },
           {
             "timestamp": "[0:08-0:10]",
-            "shot_ref": "B-ROLL B2 + B3",
-            "content": "[Uncaps stick, takes a hit]"
+            "shot_ref": "B-ROLL B8 + B10",
+            "content": "[Takes a hit]"
           },
           {
-            "timestamp": "[0:10-0:13]",
+            "timestamp": "[0:10-0:12]",
             "shot_ref": "TH5 CLOSE-UP",
-            "content": "ON CAMERA: \"Oh. Oh no. OK I get it now.\""
+            "content": "ON CAMERA: \"Oh. Oh no.\""
           },
           {
-            "timestamp": "[0:13-0:17]",
+            "timestamp": "[0:12-0:17]",
             "shot_ref": "TH5 MEDIUM",
-            "content": "ON CAMERA: \"It's like someone turned on the AC inside my nose. I can feel it in my whole face.\""
+            "content": "ON CAMERA: \"OK yeah. I get it. That is… wow. It's like AC for your nose.\""
           },
           {
             "timestamp": "[0:17-0:22]",
             "shot_ref": "TH5 CLOSE-UP",
-            "content": "ON CAMERA: \"Yeah. I'm linking this. I already ordered three more. I hate when TikTok is right.\""
+            "content": "ON CAMERA: \"I already ordered three more. I hate when TikTok is right. Link's right here.\""
           }
         ],
         "onscreen_text": [
@@ -698,7 +717,7 @@
             "text": "10M sold. Shark Tank. ok fine."
           },
           {
-            "timestamp": "[0:10-0:13]",
+            "timestamp": "[0:10-0:12]",
             "text": "…oh."
           },
           {
@@ -710,97 +729,150 @@
     ],
     "remixes": [
       {
-        "title": "Remix 1 — The Sinus Reset",
+        "title": "B-Roll 1 — The Congestion Emergency",
         "info_line": "BOOMBOOM • VOICEOVER",
+        "content_angle": "fear_urgency",
+        "angle_evidence": {
+          "rank": 1,
+          "weighted_score": 280590,
+          "avg_likes": 186350,
+          "avg_shares": 28700,
+          "video_count": 2,
+          "data_source": "non_talking_head"
+        },
         "broll_assembly": [
-          "B11 — Before: mouth breathing, puffy, miserable",
-          "B2 — Uncapping the stick (slow, satisfying)",
-          "B3 — Stick held to nose, deep inhale",
-          "B13 — Shock face — eyes wide, jaw drops",
-          "B14 — Relief exhale — long slow breath out",
-          "B1 — Product close-up showing brand name",
-          "B5 — Back of packaging (ingredients)"
+          "B7 — Before face: mouth breathing on couch, looking congested and tired (the FEAR — this is what congestion does)",
+          "B15 — Reaching for BoomBoom from counter (the SOLUTION — within arm's reach)",
+          "B8 — Uncapping the stick (transition — relief incoming)",
+          "B10 — Deep inhale through nose (the turning point)",
+          "B12 — Relief exhale at bathroom mirror (URGENCY resolved — she can breathe)",
+          "B4 — Ingredients label close-up (credibility: menthol, eucalyptus, peppermint)"
         ],
         "onscreen_text_script": [
-          "[0:00-0:03] everyone kept telling me about this 🤷‍♀️",
-          "[0:08-0:12] menthol + eucalyptus + peppermint",
-          "[0:18-0:22] 10M+ sold. I get it now. Link ⬇️"
-        ],
-        "voiceover_script": "Use VO1 from Shoot Guide."
-      },
-      {
-        "title": "Remix 2 — Allergy Season SOS",
-        "info_line": "BOOMBOOM • VOICEOVER",
-        "broll_assembly": [
-          "B11 — Congested face, mouth breathing",
-          "B9 — Pulling stick from pocket",
-          "B3 — Stick to nose, breathing in hard",
-          "B14 — Relief exhale",
-          "B15 — Handing it to someone else",
-          "B6 — Size comparison next to keys"
-        ],
-        "onscreen_text_script": [
-          "[0:00-0:03] allergy season was killing me 🤧",
-          "[0:07-0:11] one breath = everything opens",
-          "[0:16-0:19] bought a 6 pack. not going back. Link ⬇️"
+          "[0:00-0:03] couldn't breathe for 4 days 🤧",
+          "[0:05-0:08] tried everything. nothing worked.",
+          "[0:10-0:14] one breath and everything opened",
+          "[0:16-0:19] ordered a bunch. not doing that again.",
+          "[0:20-0:23] Link below ⬇️"
         ],
         "voiceover_script": "Use VO2 from Shoot Guide."
       },
       {
-        "title": "Remix 3 — Gym Bag Check",
-        "info_line": "BOOMBOOM • VOICEOVER",
+        "title": "B-Roll 2 — The Unboxing Shock",
+        "info_line": "BOOMBOOM • NO VOICEOVER — music + text only • Music: Trending sound (surprise/reaction energy — editor's choice)",
+        "content_angle": "shock_curiosity",
+        "angle_evidence": {
+          "rank": 2,
+          "weighted_score": 248616,
+          "avg_likes": 189429,
+          "avg_shares": 18730,
+          "video_count": 7,
+          "data_source": "non_talking_head"
+        },
         "broll_assembly": [
-          "B8 — Dropping stick into gym bag",
-          "B12 — Post-workout, catching breath",
-          "B2 — Uncapping (satisfying close-up)",
-          "B3 — Deep inhale from stick",
-          "B13 — Reaction shot — relief after workout",
-          "B1 — Brand close-up"
+          "B1 — Opening the shipping package at kitchen table (SETUP — what did she order?)",
+          "B3 — First look at the product close-up (CURIOSITY — what is this little thing?)",
+          "B9 — Examining it, rolling between fingers (BUILDING tension)",
+          "B8 — Uncapping skeptically (she's not sure about this)",
+          "B10 — First inhale — close on face (the MOMENT)",
+          "B11 — SHOCK face — eyes wide, jaw drops (the PAYOFF)",
+          "B4 — Flips to read ingredients — just essential oils?"
         ],
         "onscreen_text_script": [
-          "[0:00-0:03] gym bag essential nobody talks about 🏋️‍♀️",
-          "[0:07-0:11] breathe in before your set",
-          "[0:14-0:18] ~$5. lasts a month. Link ⬇️"
-        ],
-        "voiceover_script": "Use VO3 from Shoot Guide."
-      },
-      {
-        "title": "Remix 4 — The Transformation Loop",
-        "info_line": "BOOMBOOM • NO VOICEOVER — music + text only • Music: Trending sound (satisfying before/after aesthetic — editor's choice)",
-        "broll_assembly": [
-          "B11 — Before face: congested, miserable, mouth breathing",
-          "B2 — Slow satisfying cap removal",
-          "B3 — Stick to nose — deep inhale (hold the shot)",
-          "B14 — Relief exhale — the transformation moment",
-          "B13 — Shock face turns to smile",
-          "B1 — Product close-up on brand",
-          "B4 — Multiple scents laid out"
-        ],
-        "onscreen_text_script": [
-          "[0:00-0:02] before vs. after 👀",
-          "[0:04-0:07] one breath.",
-          "[0:08-0:11] essential oils. menthol + eucalyptus + peppermint.",
-          "[0:12-0:15] 10M sold. Shark Tank featured. Link below ⬇️"
+          "[0:00-0:02] ordered this off TikTok. no idea what to expect.",
+          "[0:04-0:06] it says just breathe in??",
+          "[0:08-0:10] wait for it 😳",
+          "[0:11-0:13] BRO.",
+          "[0:14-0:17] BoomBoom nasal stick. 10M sold. Link below ⬇️"
         ],
         "voiceover_script": null
       },
       {
-        "title": "Remix 5 — First Time Reactions",
-        "info_line": "BOOMBOOM • NO VOICEOVER — music + text only • Music: Trending sound (reaction/surprise energy — editor's choice)",
+        "title": "B-Roll 3 — Stuffed to Clear in 10 Seconds",
+        "info_line": "BOOMBOOM • VOICEOVER",
+        "content_angle": "before_after",
+        "angle_evidence": {
+          "rank": 3,
+          "weighted_score": 120267,
+          "avg_likes": 101850,
+          "avg_shares": 5157,
+          "video_count": 8,
+          "data_source": "non_talking_head"
+        },
         "broll_assembly": [
-          "B15 — Hand someone the stick — their confused face",
-          "B2 — They uncap it skeptically",
-          "B3 — First inhale",
-          "B13 — THEIR shock reaction — eyes wide",
-          "B7 — Examining the stick, impressed",
-          "B1 — Brand close-up",
-          "B6 — Size comparison shot"
+          "B7 — BEFORE: congested on couch, mouth breathing, puffy, miserable (the PROBLEM — make it obvious)",
+          "B3 — Product on counter next to her (the SOLUTION is right there)",
+          "B8 — Uncapping the stick (TRANSITION begins)",
+          "B10 — Deep inhale through each nostril — hold the shot (DURING — transformation happening)",
+          "B13 — AFTER: same couch, deep nasal breath with eyes closed (TRANSFORMATION complete)",
+          "B11 — Eyes open — clear, awake, different energy",
+          "B4 — Ingredients label (what made it happen)"
         ],
         "onscreen_text_script": [
-          "[0:00-0:02] gave my friend this without telling her what it was",
-          "[0:04-0:07] wait for it…",
-          "[0:08-0:11] that face 😂",
-          "[0:12-0:15] BoomBoom nasal stick. 10M sold. Link below ⬇️"
+          "[0:00-0:03] watch what happens in 10 seconds 👀",
+          "[0:04-0:07] BEFORE: can't breathe",
+          "[0:10-0:13] AFTER: everything clear",
+          "[0:15-0:18] essential oils only. 10M sold.",
+          "[0:19-0:22] Link below ⬇️"
+        ],
+        "voiceover_script": "Use VO1 from Shoot Guide."
+      },
+      {
+        "title": "B-Roll 4 — The Tired Mom Hack",
+        "info_line": "BOOMBOOM • VOICEOVER",
+        "content_angle": "problem_solution",
+        "angle_evidence": {
+          "rank": 4,
+          "weighted_score": 101134,
+          "avg_likes": 76965,
+          "avg_shares": 7718,
+          "video_count": 10,
+          "data_source": "non_talking_head"
+        },
+        "broll_assembly": [
+          "B7 — Exhausted on couch, barely awake (the PROBLEM — tired mom energy)",
+          "B15 — Reaching for the stick from counter (she knows where it is — it's routine)",
+          "B8 — Uncapping (SOLUTION revealed)",
+          "B10 — Deep inhale from stick (applying the SOLUTION)",
+          "B12 — Relief exhale — eyes brighter, energy shifts (PROBLEM solved)",
+          "B5 — Size comparison next to her coffee mug (this little thing > coffee)",
+          "B3 — Brand close-up"
+        ],
+        "onscreen_text_script": [
+          "[0:00-0:03] tired mom. can barely function. 😩",
+          "[0:05-0:08] my daily reset button",
+          "[0:10-0:13] one breath = lights back on",
+          "[0:15-0:18] better than coffee. ~$5. Link ⬇️"
+        ],
+        "voiceover_script": "Use VO3 from Shoot Guide."
+      },
+      {
+        "title": "B-Roll 5 — The Morning Ritual",
+        "info_line": "BOOMBOOM • NO VOICEOVER — music + text only • Music: Trending sound (calm morning aesthetic — editor's choice)",
+        "content_angle": "lifestyle_aspiration",
+        "angle_evidence": {
+          "rank": 5,
+          "weighted_score": 81317,
+          "avg_likes": 55871,
+          "avg_shares": 8331,
+          "video_count": 18,
+          "data_source": "non_talking_head"
+        },
+        "broll_assembly": [
+          "B6 — Stick on nightstand, morning light through window (the LIFESTYLE — aspirational setting)",
+          "B15 — Hand reaching for it first thing (ROUTINE — before coffee, before phone)",
+          "B8 — Slow uncapping (RITUAL — satisfying, intentional)",
+          "B10 — Deep morning inhale, eyes closed (the MOMENT — calm, not rushed)",
+          "B12 — Relief exhale — still in bed or just sitting up (ASPIRATION — easy morning)",
+          "B9 — Rolling stick between fingers, content (she's awake now)",
+          "B3 — Product close-up in morning light on nightstand"
+        ],
+        "onscreen_text_script": [
+          "[0:00-0:02] before coffee. before phone.",
+          "[0:04-0:06] this.",
+          "[0:08-0:11] essential oil nasal stick",
+          "[0:12-0:14] one breath = awake",
+          "[0:15-0:17] Link below ⬇️"
         ],
         "voiceover_script": null
       }
@@ -811,33 +883,33 @@
         "#nasalstick",
         "#essentialoils",
         "#sharktank",
-        "#allergyseason",
+        "#congestionrelief",
         "#tiktokmademebuyit",
-        "#sinusrelief",
-        "#fitnesshack",
+        "#momhack",
+        "#tiredmom",
         "#breathe",
         "#boomboomnasalstick",
         "#beforeandafter",
         "#tiktokviral"
       ],
       "captions": [
-        "she wouldn't tell me what it was 😳 #boomboom #nasalstick #reaction",
-        "allergy season was WINNING until this 🤧 #boomboom #allergyseason #sinusrelief",
+        "I had NO idea what this was gonna do 😳 #boomboom #nasalstick #tiktokmademebuyit",
+        "4 days congested. one breath fixed it. 🤧 #boomboom #congestionrelief #sinusrelief",
         "watch my face change in 10 seconds 👀 #boomboom #beforeandafter #nasalstick",
-        "the pre-workout hack nobody told me about 💪 #boomboom #gymtok #fitnesshack",
+        "tired mom hack that actually works 😩✨ #momlife #boomboom #momhack",
         "I hate when TikTok is right 😤 #boomboom #tiktokmademebuyit #sharktank"
       ],
       "schedule": [
-        "Day 1: Hero 1 (Blind Sniff Test) — shock/curiosity, strongest scroll-stop",
-        "Day 2: Remix 4 (No-voice transformation loop) — satisfying before/after",
-        "Day 3: Hero 2 (Allergy Season Panic) — urgency angle, seasonal relevance",
-        "Day 4: Remix 1 (VO sinus reset)",
-        "Day 5: Hero 3 (Stuffed vs. Clear) — before/after transformation",
-        "Day 6: Remix 5 (No-voice first reactions) — social proof energy",
-        "Day 7: Hero 4 (Gym Pre-Workout) — problem/solution for fitness audience",
-        "Day 8: Remix 2 (VO allergy season SOS)",
-        "Day 9: Hero 5 (Mom Who Tried Everything) — social proof / skeptic converted",
-        "Day 10: Remix 3 (VO gym bag check)"
+        "Day 1: Hero 1 (Blind Unbox) — shock/curiosity #1, strongest scroll-stop",
+        "Day 2: B-Roll 2 (Unboxing Shock, no-voice) — shock/curiosity #1, reaction payoff",
+        "Day 3: Hero 2 (Can't Sleep Congestion) — fear/urgency #2, seasonal urgency",
+        "Day 4: B-Roll 1 (Congestion Emergency, VO) — fear/urgency #1 non-TH, highest share angle",
+        "Day 5: Hero 3 (Before and After) — before/after #3, visual transformation",
+        "Day 6: B-Roll 3 (Stuffed to Clear, VO) — before/after #3, transformation arc",
+        "Day 7: Hero 4 (Tired Mom Reset) — problem/solution #4, relatable mom audience",
+        "Day 8: B-Roll 4 (Tired Mom Hack, VO) — problem/solution #4, same audience",
+        "Day 9: Hero 5 (TikTok Made Me Buy It) — social proof, skeptic converted",
+        "Day 10: B-Roll 5 (Morning Ritual, no-voice) — lifestyle aspiration #5, aesthetic"
       ]
     }
   }

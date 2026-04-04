@@ -42,7 +42,7 @@
 
   "content_rules": {
     "hero_videos": 5,
-    "remix_videos": 5,
+    "broll_videos": 5,
     "broll_shots_min": 15,
     "broll_shots_max": 20,
     "broll_product_closeup_pct": "50-65%",
@@ -50,6 +50,28 @@
     "broll_lifestyle_pct": "5-10%",
     "max_purchased_props_per_shoot": 2,
     "voiceover_clips": 5,
+
+    "single_product_assumption": {
+      "rule": "Assume the creator has exactly ONE unit of the product unless the product listing explicitly includes multiples (e.g. a 3-pack, or a bundle with a free bonus item). All b-roll and hero concepts must be filmable with one unit.",
+      "implications": [
+        "No 'multiple scents laid out on counter' unless the product ships as a variety pack",
+        "No 'I bought six of these' visuals — she can SAY it but can't SHOW six on screen",
+        "Unboxing shots must come FIRST in shoot order — can't re-seal packaging",
+        "Product state is sequential: sealed → unboxed → uncapped → in use. B-roll order must respect this."
+      ],
+      "override": "If the product listing includes multiples (e.g. 'BoomBoom 3-pack variety'), note this in the product brief and allow multi-unit b-roll."
+    },
+
+    "broll_shoot_order": {
+      "rule": "B-roll shots in the shoot guide must be listed in the order they should be filmed, not the order they appear in edits. The product goes through irreversible state changes during filming.",
+      "sequence": [
+        "Phase 1 — SEALED: Unboxing, first look, packaging shots (can only happen once)",
+        "Phase 2 — PRODUCT VISIBLE: Brand close-ups, label/ingredients, size comparisons, product on surfaces (nightstand, counter, etc.)",
+        "Phase 3 — IN USE: Uncapping, inhaling/applying, reaction shots, relief moments",
+        "Phase 4 — LIFESTYLE CONTEXT: Product in pocket/purse, reaching for it, casual use in different rooms"
+      ],
+      "note": "Hero talking-head videos should be filmed AFTER b-roll. By the time she shoots heroes, the product is already open and she's used it — which means her reactions in heroes are informed by actual experience, and she doesn't need to pretend she hasn't opened it yet."
+    },
 
     "remix_format_mix": {
       "data_source": "100-video TikTok database (2026-03-31 analysis)",
@@ -85,6 +107,21 @@
     "target_audience": "Women 25-40, moms, beauty on a budget, relatable everyday life",
     "account_stage": "brand new TikTok, building from zero",
     "additional_notes": "The golden test: Would this person actually say this to her friend while making coffee?",
+
+    "filming_constraints": {
+      "solo_only": true,
+      "solo_only_rule": "Michelle films alone. No other people appear in any video — no friends, no family, no passersby. Every concept must work with one person on camera or one person's hands in b-roll. No 'hand it to someone' or 'reaction from a friend' concepts.",
+      "location": "home_only",
+      "location_rule": "All filming happens inside Michelle's home. Kitchen, bathroom, bedroom, living room, couch — all fine. No gym, no grocery store, no car, no outdoor locations, no office. Every concept and b-roll shot must be filmable in a modest apartment.",
+      "location_options": ["kitchen counter", "bathroom mirror", "bedroom/nightstand", "living room/couch", "home desk"],
+      "implications_for_content": [
+        "Gym-related concepts must be reframed as at-home fitness or general energy/tiredness",
+        "B-roll that requires external locations must be replaced with home equivalents",
+        "No 'someone at my gym showed me' or 'my friend handed me' setups — she discovered it herself (TikTok, online, etc.)",
+        "All product shots on home surfaces — counter, nightstand, bathroom shelf",
+        "Workout context = home workout, yoga mat, post-walk, general physical tiredness — not gym equipment"
+      ]
+    },
 
     "performance_feedback": {
       "description": "Post-publish performance tracking per video. Fed back into future content generation to improve hook selection, format choices, and script direction. This is the learning loop.",
