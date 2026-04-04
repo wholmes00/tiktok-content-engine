@@ -388,19 +388,22 @@
         "code": "VO1",
         "product": "BOOMBOOM",
         "content_angle": "before_after",
-        "script": "I was so congested I couldn't breathe through my nose for days. Mouth breathing all night. Miserable. Then I tried this little essential oil stick I found on TikTok. One breath in and it was like everything just opened. Like before and after are two different people. Menthol, eucalyptus, peppermint. They've sold over ten million of these. It was on Shark Tank. I keep one on my nightstand now. Link's right here."
+        "hook_template": "HT7",
+        "script": "Do you see how stuffed up I am right now? Watch what one breath does. I found this little essential oil stick on TikTok. You just breathe in and everything opens. Like before and after are two different people. Menthol, eucalyptus, peppermint. They've sold over ten million of these. It was on Shark Tank. I keep one on my nightstand now. Link's right here."
       },
       {
         "code": "VO2",
         "product": "BOOMBOOM",
         "content_angle": "fear_urgency",
-        "script": "If you're congested right now you need to hear this. I could not breathe through my nose for like four days. I tried everything. Then I found this little nasal stick called BoomBoom on TikTok. One breath and everything just opened up. Instant. It's menthol and eucalyptus and peppermint. I ordered a bunch because I'm not going through that again. If your sinuses are wrecking you right now — get this. Link below."
+        "hook_template": "HT1",
+        "script": "Stop trying to sleep through congestion. It's not going away on its own. I went four days like that. Mouth breathing all night. Wrecked every morning. Then I found this little nasal stick on TikTok called BoomBoom. One breath and everything just opened up. Instant. Menthol, eucalyptus, peppermint. I ordered a bunch because I'm not doing that again. Link below."
       },
       {
         "code": "VO3",
         "product": "BOOMBOOM",
         "content_angle": "problem_solution",
-        "script": "Being a tired mom is one thing. Being a tired mom who can't breathe is something else. I was dragging all day and someone on TikTok said try this little nasal stick. You breathe in and it's like someone turned the lights back on. Menthol, eucalyptus, peppermint. It costs like five dollars and it lasts a month. I keep it in my pocket all day now. Better than coffee honestly. I'll link it."
+        "hook_template": "HT5",
+        "script": "I used to literally dread three PM every single day. That's when the fog hits and you can barely keep your eyes open. Then someone told me about this little nasal stick. You breathe in and it's like someone turned the lights back on. Menthol, eucalyptus, peppermint. Costs like five dollars and lasts a month. I keep it in my pocket all day now. Better than coffee. I'll link it."
       }
     ]
   },
