@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Node
+node_modules/
+package-lock.json
+
+# Frames (video analysis — too large for repo)
+frames/
+
+# Generated documents (rebuild from content.json)
+*.docx
+!v2/templates/approved/*.docx
+output/
+
+# Intermediate pipeline files (product-specific runs)
+*_hooks_round*.txt
+*_hooks_scored*.json
+*_hooks_prompt*.txt
+*_hooks_raw*.txt
+*_hooks_v*.txt
+*_scripts_prompt*.txt
+*_pass0_prompt.txt
+*_pass1_context.json
+*_product_research.txt
+*_locked_hooks.json
+*_top5_hooks.json
+*_shoot_guide*.json
+*_edit_guide*.json
+*_directors_overview*.json
+*_prompt*.txt
+*_rules_debug.txt
+
+# Old analysis artifacts
+reanalysis/
+rt_work1/
+classification.json
+broll_*.json
+broll_*.sql
+
+# Legacy JS generators (replaced by Python v2)
+create_content_plan.js
+create_content_plan_v2.js
+create_directors_version.js
+create_shoot_guide.js
+generate_edit_guide.js
+generate_shoot_guide.js
+
+# Legacy product-specific outputs
+GOOPGLOW_*.md
+hotel_pillows_*.json
+
+# Misc intermediate files
+last_prompt.txt
+SHOOT_GUIDE_V3_SUMMARY.txt
+pipeline_hooks_raw.txt
+transcription_run.log
+smoothed_chunk_*.sql
+
+# Legacy one-off scripts (data migration, not part of engine)
+backfill_audio.py
+batch_urls.py
+batch_urls_2.py
+broll_classifier.py
+extract_onscreen_text.py
+run_cosrx_pass0.py
+run_livefull_pipeline.py
+visual_classifier.py
+whisper_retranscribe.py
+verify_sync.js
+
+# Legacy templates directory (replaced by v2/templates)
+/templates/
+
+# Environment
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

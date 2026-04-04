@@ -1,0 +1,375 @@
+{
+  "version": "1.1.0",
+  "last_updated": "2026-03-31",
+
+  "pipeline": {
+    "default_model": "claude-sonnet-4-20250514",
+    "research_model": "claude-haiku-4-5-20251001",
+    "script_model": "claude-sonnet-4-20250514",
+    "max_tokens_research": 4096,
+    "max_tokens_hooks": 4096,
+    "max_tokens_scripts": 8192,
+    "hook_rounds": 3,
+    "hooks_per_round": 10,
+    "top_n_hooks": 5,
+    "similarity_threshold": 0.3
+  },
+
+  "scoring_weights": {
+    "word_count": {
+      "max_points": 30,
+      "brackets": {
+        "ultra_short_max": 5,
+        "short_max": 8,
+        "optimal_max": 12,
+        "acceptable_max": 15,
+        "long_max": 18
+      },
+      "bracket_scores": [30, 27, 22, 12, 5, 0]
+    },
+    "product_mention_penalty": -30,
+    "incompleteness_bonus_max": 15,
+    "social_reaction_bonus": {"strong": 10, "moderate": 7},
+    "tension_conflict_bonus_max": 10,
+    "tension_per_match": 3,
+    "question_bonus": 5,
+    "emotional_specificity_bonus_max": 10,
+    "generic_hook_penalty": -10,
+    "completeness_penalty_max": -15,
+    "ad_copy_penalty": -15,
+    "soft_opener_penalty": -5
+  },
+
+  "content_rules": {
+    "hero_videos": 5,
+    "remix_videos": 5,
+    "broll_shots_min": 15,
+    "broll_shots_max": 20,
+    "broll_product_closeup_pct": "50-65%",
+    "broll_hands_on_demo_pct": "25-35%",
+    "broll_lifestyle_pct": "5-10%",
+    "max_purchased_props_per_shoot": 2,
+    "voiceover_clips": 5,
+
+    "remix_format_mix": {
+      "data_source": "100-video TikTok database (2026-03-31 analysis)",
+      "rationale": "No-voice videos (9% of dataset) average 9,786 shares vs 8,190 for VO b-roll vs 4,633 for talking head. No-voice format leads on shareability (2x talking head). Likes roughly equal across formats (~50K avg). Mix weighted toward VO since it's the proven majority format, but includes no-voice to capture shareability advantage and test format diversity.",
+      "voiceover_remixes_pct": 70,
+      "no_voice_remixes_pct": 30,
+      "no_voice_format": {
+        "description": "B-roll + trending music + on-screen text overlays. No spoken voiceover.",
+        "best_for": ["sensory/ASMR content", "ingredient/label showcases", "texture/visual-first content", "quick satisfying loops"],
+        "on_screen_text_rules": "Text must carry the entire message. Hook text large and bold at 0:00. Product facts mid-video. CTA at close. Keep text punchy — 3-6 words per overlay max."
+      },
+      "voiceover_format": {
+        "description": "B-roll + voiceover narration + optional on-screen text. Music under VO.",
+        "best_for": ["storytelling/emotional angles", "comparisons/value propositions", "tutorials/routines", "humor/personality-driven content"]
+      },
+      "rebalance_trigger": "Revisit this split when performance_feedback has 20+ data points. If no-voice outperforms VO on shares AND engagement rate, shift to 50/50. If VO clearly wins, shift to 85/15."
+    }
+  },
+
+  "persona": {
+    "name": "Michelle",
+    "age_range": "early 30s",
+    "ethnicity": "Venezuelan/Latina",
+    "location": "Medellin, Colombia",
+    "is_parent": true,
+    "kids_description": "young daughter",
+    "on_camera_style": "warm, conversational, direct-to-camera",
+    "tone": "warm_and_relatable",
+    "energy_level": "medium-high, genuine enthusiasm not performance",
+    "identity_angles": ["latina_mom", "budget_conscious", "real_results"],
+    "language_notes": "Spanish first language. Slight accent. Uses English naturally but not perfectly. NO luxury brand references, NO scientific ingredient names, NO industry jargon. She describes what she SEES and FEELS, not what ingredients DO.",
+    "lifestyle_notes": "Modest apartment in Medellin. Not wealthy. Real person energy — not influencer-polished.",
+    "target_audience": "Women 25-40, moms, beauty on a budget, relatable everyday life",
+    "account_stage": "brand new TikTok, building from zero",
+    "additional_notes": "The golden test: Would this person actually say this to her friend while making coffee?",
+
+    "performance_feedback": {
+      "description": "Post-publish performance tracking per video. Fed back into future content generation to improve hook selection, format choices, and script direction. This is the learning loop.",
+      "status": "awaiting_first_data",
+      "entries": [],
+      "entry_schema": {
+        "video_title": "string — which video from the shoot/edit guide",
+        "format": "talking_head | voiceover_broll | no_voice",
+        "product": "string — product name",
+        "posted_date": "YYYY-MM-DD",
+        "views_24h": "number",
+        "views_7d": "number",
+        "likes": "number",
+        "comments": "number",
+        "shares": "number",
+        "saves": "number",
+        "shop_clicks": "number (if available)",
+        "conversions": "number (if available)",
+        "watch_time_avg": "seconds (if available)",
+        "notes": "string — what worked, what didn't, audience feedback patterns"
+      },
+      "how_to_use": "After posting, add performance data here. System will use this to: (1) weight hook styles that perform well for this creator, (2) adjust format mix ratios in remix_format_mix, (3) refine tone/energy direction in persona, (4) identify which b-roll styles drive retention. Minimum 20 entries before system auto-adjusts weights.",
+      "rebalance_rules": [
+        "If no-voice shares > 2x VO shares after 10+ posts: increase no_voice_remixes_pct to 40%",
+        "If a specific hook format (question, incomplete, social proof) consistently scores top 3: boost its weight in scoring_weights by +5",
+        "If watch_time_avg is consistently higher on VO content: prioritize VO for hero-adjacent remixes",
+        "If shop_clicks concentrate on specific CTA styles: encode those as preferred CTA patterns"
+      ]
+    },
+
+    "vocabulary_ceiling": {
+      "forbidden_references": [
+        "La Mer", "SK-II", "Tatcha", "Drunk Elephant", "Sunday Riley",
+        "adenosine", "glutathione", "niacinamide", "retinol", "hyaluronic acid",
+        "K-beauty", "actives", "barrier repair", "peptides",
+        "clinically proven", "dermatologist-tested", "clinical trials"
+      ],
+      "how_she_talks_about_results": "Describes what she SEES and FEELS. 'my under-eyes don't look as dark' NOT 'the adenosine reduces fine lines'",
+      "how_she_references_price": "Compares to things SHE has bought. 'I've spent way more on stuff that didn't work' NOT 'La Mer costs two hundred fifty dollars'",
+      "how_she_references_ingredients": "'there's this ingredient in it that's supposed to help with wrinkles — I can't even pronounce it' NOT 'adenosine is the clinical anti-wrinkle ingredient'"
+    }
+  },
+
+  "shoot_guide_format": {
+    "locked": true,
+    "locked_date": "2026-03-31",
+    "description": "Approved shoot guide format — all future shoot guides must follow this structure.",
+    "sections": [
+      "Hero talking head scripts with bullet-point notes (product interaction focus, minimal direction, creative control for creator)",
+      "B-roll shot list labeled by product with concise descriptions",
+      "Voiceover scripts numbered sequentially, labeled by product only, script text only — no remix titles, no editor pairing notes"
+    ],
+    "excluded_sections": [
+      "Props & Setup (removed — creator decides locations, wardrobe, setup)",
+      "No-voice remix entries (editing-only decisions, belong in edit guide)",
+      "VO context/pairing notes (editor info, belongs in edit guide)"
+    ],
+    "hero_notes_rules": [
+      "Bullet point list format — short, scannable",
+      "Focus on product interaction: when product is visible, when it's in hand, when to show label",
+      "Product in frame from first shot (data: 10/14 top videos show product at frame 0)",
+      "VO lines clearly marked as audio-only — editor handles the visuals",
+      "Lighting mentioned, framing/angles left to creator",
+      "No paragraph-style direction blocks"
+    ],
+    "voiceover_rules": [
+      "Numbered sequentially (VO1, VO2, etc.) — no gaps",
+      "Labeled by product name only (e.g. STRAWBERRY, DR.MELAXIN)",
+      "Script text only — no remix names, no editor context, no b-roll pairing info"
+    ]
+  },
+
+  "edit_guide_format": {
+    "locked": true,
+    "locked_date": "2026-03-31",
+    "description": "Approved edit guide format — all future edit guides must follow this structure.",
+    "hero_video_sections": [
+      "Title + Hook + Audio type (original sound for talking head — data: 34/34 use original sound)",
+      "TIMELINE: unified shot-by-shot — each entry has timestamp, shot reference (green), and audio line (what's being said or heard)",
+      "ON-SCREEN TEXT: separate section after timeline — each entry has timestamp range and text overlay content"
+    ],
+    "hero_excluded": [
+      "Angle, Format, Duration fields (unnecessary clutter)",
+      "Music direction for talking head heroes (data: 100% use original sound)",
+      "CTA Strategy section (folded into timeline and on-screen text)",
+      "Inline text in timeline entries (text is its own section for editor workflow)"
+    ],
+    "remix_sections": [
+      "Title + Product label + Type (VOICEOVER or NO VOICEOVER)",
+      "Music (for no-voice remixes only — it's the soundtrack)",
+      "SHOT ASSEMBLY: b-roll clips to use in order",
+      "ON-SCREEN TEXT: timestamped overlays",
+      "VOICEOVER SCRIPT (for VO remixes only — full script text)"
+    ],
+    "upload_details": [
+      "Hashtags, suggested captions, posting schedule"
+    ]
+  },
+
+  "output": {
+    "shoot_guide_template": "templates/generate_shoot_guide.js",
+    "edit_guide_template": "templates/generate_edit_guide.js",
+    "output_dir": "output",
+    "save_intermediates": true,
+    "intermediate_files": [
+      "product_research.txt",
+      "pass1_context.json",
+      "hooks_prompt.txt",
+      "hooks_round_{n}.txt",
+      "hooks_scored.json",
+      "locked_hooks.json",
+      "scripts_prompt.txt",
+      "shoot_guide.json",
+      "edit_guide.json"
+    ]
+  },
+
+  "database": {
+    "supabase_project_id": "owklfaoaxdrggmbtcwpn",
+    "total_videos_analyzed": 122,
+    "use_all_videos_holistically": true,
+    "validation_gate": {
+      "enabled": true,
+      "runs_at": "pipeline_startup",
+      "covers_all_10_tables": true,
+      "two_layer_validation": {
+        "layer_1_row_presence": "Does every required table have at least 1 row per video?",
+        "layer_2_data_quality": "Does the row contain actual, meaningful content above minimum thresholds?"
+      },
+      "tier_1_required": {
+        "description": "Blocks pipeline if missing. Every video must have these.",
+        "tiktok_videos_fields": ["product_name", "product_category", "audio_type", "content_type", "hook_format", "voice_delivery", "performance_insight"],
+        "per_video_tables": ["video_transcripts", "video_shot_breakdown", "video_visual_notes", "video_ctas", "video_visual_scripts", "video_onscreen_text"]
+      },
+      "tier_2_recommended": {
+        "description": "Currently empty — all per-video tables are now Tier 1 required.",
+        "per_video_tables": []
+      },
+      "tier_3_reference": {
+        "description": "Global reference tables. Checked for minimum row counts.",
+        "tables": ["hook_patterns", "cta_patterns", "creators"]
+      },
+      "quality_thresholds": {
+        "description": "Layer 2 — content must be meaningful, not just present. Blocks pipeline if failed.",
+        "video_transcripts.full_transcript": {
+          "min_length": 20,
+          "reject_patterns": ["empty string", "Music"],
+          "note": "[NO_SPEECH] is a valid format — contains audio format flag plus on-screen text content"
+        },
+        "video_visual_scripts.full_visual_script": {
+          "min_length": 30,
+          "reject_patterns": []
+        },
+        "video_visual_notes.overall_notes": {
+          "min_length": 30,
+          "reject_patterns": ["Backfilled from shot_sequence data"]
+        },
+        "video_shot_breakdown.notes": {
+          "min_length": 20,
+          "reject_patterns": []
+        }
+      }
+    },
+    "completeness_status": {
+      "last_audit": "2026-04-04",
+      "total_videos": 122,
+      "layer_1_row_presence": {
+        "tiktok_videos": "122/122 — all 7 required fields populated",
+        "video_transcripts": "122/122 rows present",
+        "video_shot_breakdown": "122/122",
+        "video_visual_notes": "122/122",
+        "video_ctas": "122/122",
+        "video_visual_scripts": "122/122",
+        "video_onscreen_text": "122/122 — frame-verified creator overlays"
+      },
+      "layer_2_data_quality": {
+        "status": "ALL CLEAR — 122/122 pass both layers",
+        "last_validated": "2026-04-04",
+        "fixes_applied": {
+          "video_transcripts": "All 122 re-transcribed with Whisper. transcript_type classification added: 91 creator_speech, 13 borrowed_audio, 18 no_speech.",
+          "video_visual_notes": "67 boilerplate notes replaced (2026-03-31). 21 new videos frame-verified (2026-04-04).",
+          "video_onscreen_text": "21 new videos re-analyzed frame-by-frame after fabricated data was identified and replaced (2026-04-04)."
+        }
+      },
+      "tier_3_reference": {
+        "hook_patterns": "94 rows",
+        "cta_patterns": "9 rows",
+        "creators": "1 row (Michelle)"
+      }
+    },
+    "notes": "Full backfill completed 2026-03-31. Whisper migration + visual re-analysis completed 2026-04-04. 122 videos, 122/122 pass both validation layers. Pipeline spec v1.0 created 2026-04-04."
+  },
+
+  "nonnegotiables": {
+    "_description": "PERMANENT RULES. These cannot be overridden for speed, convenience, or any other reason. Read this section at the start of every session.",
+    "last_updated": "2026-04-04",
+
+    "rule_1_whisper_only": {
+      "rule": "Whisper is the ONLY transcription method. No exceptions.",
+      "tool": "OpenAI Whisper base model, CPU-only PyTorch",
+      "why": "Google Speech Recognition produced garbled, inaccurate transcripts. Whisper was implemented as a permanent replacement on 2026-04-04."
+    },
+    "rule_2_frame_by_frame_visual": {
+      "rule": "On-screen text requires frame-by-frame visual verification. Only record what is visually confirmed in extracted frames.",
+      "process": "Download video → extract frames with ffmpeg → read EVERY frame → record only verified text",
+      "why": "Inference from transcripts produced fabricated on-screen text data that did not match what was actually on screen."
+    },
+    "rule_3_force_overwrites": {
+      "rule": "Always use --force-overwrites --no-cache-dir on every yt-dlp call.",
+      "why": "Without these flags, yt-dlp silently skips downloads if a file exists, causing one video's analysis to be applied to a different video."
+    },
+    "rule_4_clean_stale_frames": {
+      "rule": "Delete all existing frames in the directory before extracting new ones.",
+      "why": "Leftover frames from a longer previous video mix into the analysis of a shorter new video."
+    },
+    "rule_5_transcript_type_filter": {
+      "rule": "Content generation MUST filter to transcript_type = 'creator_speech' only.",
+      "why": "borrowed_audio (song lyrics, trending sounds) and no_speech (music only, Whisper hallucinations) would pollute script/hook/CTA recommendations."
+    },
+    "rule_6_two_layer_validation": {
+      "rule": "The 2-layer validation gate must pass before any content is generated.",
+      "layers": "Layer 1: row presence in all 6 per-video tables. Layer 2: content quality above minimum thresholds (min_length, reject_patterns)."
+    },
+    "rule_7_accuracy_over_speed": {
+      "rule": "Accuracy over speed, always. No shortcuts. No fabrication. No inference where observation is required.",
+      "why": "The entire system is only as good as the data that feeds it."
+    }
+  },
+
+  "ingestion_pipeline": {
+    "_description": "The complete step-by-step process for ingesting a new video. Follow this exactly.",
+    "pipeline_spec_document": "TikTok_Pipeline_Spec_v1.docx (on Desktop)",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Video Download",
+        "tool": "yt-dlp",
+        "location": "/sessions/fervent-admiring-brown/.local/bin/yt-dlp",
+        "flags": "--force-overwrites --no-cache-dir",
+        "format_preference": "h264_540p → any h264 mp4 → best",
+        "timeout": "120 seconds"
+      },
+      {
+        "step": 2,
+        "name": "Metadata Extraction",
+        "tool": "yt-dlp metadata + manual entry",
+        "target_table": "tiktok_videos",
+        "required_fields": ["product_name", "product_category", "audio_type", "content_type", "hook_format", "voice_delivery", "performance_insight"]
+      },
+      {
+        "step": 3,
+        "name": "Transcription",
+        "tool": "OpenAI Whisper base model (ONLY)",
+        "process": "Extract WAV audio (ffmpeg) → transcribe with Whisper → classify transcript_type → store in video_transcripts",
+        "classification": {
+          "creator_speech": "Creator speaking about product — usable for content generation",
+          "borrowed_audio": "Trending sounds, song lyrics, quotes — NOT usable",
+          "no_speech": "Music only or Whisper hallucinations — NOT usable"
+        }
+      },
+      {
+        "step": 4,
+        "name": "Visual Analysis (Frame-by-Frame)",
+        "tool": "ffmpeg for extraction, visual inspection of every frame",
+        "frame_rate": "fps=1/2 for videos under 30s, fps=1/3 for longer",
+        "pre_step": "Delete all stale frames before extracting new ones",
+        "tables_updated": ["video_onscreen_text", "video_visual_scripts", "video_visual_notes", "video_shot_breakdown"],
+        "critical": "ONLY record text visually confirmed in frames. No transcript inference."
+      },
+      {
+        "step": 5,
+        "name": "CTA Extraction",
+        "target_table": "video_ctas",
+        "source": "Transcript + visual analysis"
+      },
+      {
+        "step": 6,
+        "name": "Validation Gate",
+        "tool": "validate_video_completeness() in content_engine.py",
+        "layers": {
+          "layer_1": "Row presence in all 6 per-video tables + 7 required fields in tiktok_videos",
+          "layer_2": "Content quality: min_length thresholds + reject_pattern checks"
+        },
+        "blocks_pipeline_if_failed": true
+      }
+    ]
+  }
+}
