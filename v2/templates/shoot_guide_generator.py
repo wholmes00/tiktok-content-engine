@@ -15,20 +15,28 @@ of this file. The generator validates the input before rendering.
 import os
 from docx import Document
 
-from templates.styles import (
-    # Colors
-    DARK, BLUE, GREEN, PURPLE, GRAY_TEXT, BODY_TEXT,
-    # Sizes
-    SIZE_TITLE, SIZE_SUBTITLE, SIZE_BODY_SMALL, SIZE_BODY_MEDIUM,
-    SIZE_SECTION_HEADER, SIZE_SUB_HEADER, SIZE_BODY,
-    # Font
-    FONT_PRIMARY,
-    # Builders
-    add_centered_text, add_left_text, add_section_divider,
-    add_shoot_th_header, add_shoot_script_line, add_shoot_broll_entry,
-    add_shoot_vo_entry, add_shoot_bullet_note, add_blank,
-    add_bottom_border, add_top_border, make_run, add_angle_callout,
-)
+try:
+    from templates.styles import (
+        DARK, BLUE, GREEN, PURPLE, GRAY_TEXT, BODY_TEXT,
+        SIZE_TITLE, SIZE_SUBTITLE, SIZE_BODY_SMALL, SIZE_BODY_MEDIUM,
+        SIZE_SECTION_HEADER, SIZE_SUB_HEADER, SIZE_BODY,
+        FONT_PRIMARY,
+        add_centered_text, add_left_text, add_section_divider,
+        add_shoot_th_header, add_shoot_script_line, add_shoot_broll_entry,
+        add_shoot_vo_entry, add_shoot_bullet_note, add_blank,
+        add_bottom_border, add_top_border, make_run, add_angle_callout,
+    )
+except ImportError:
+    from v2.templates.styles import (
+        DARK, BLUE, GREEN, PURPLE, GRAY_TEXT, BODY_TEXT,
+        SIZE_TITLE, SIZE_SUBTITLE, SIZE_BODY_SMALL, SIZE_BODY_MEDIUM,
+        SIZE_SECTION_HEADER, SIZE_SUB_HEADER, SIZE_BODY,
+        FONT_PRIMARY,
+        add_centered_text, add_left_text, add_section_divider,
+        add_shoot_th_header, add_shoot_script_line, add_shoot_broll_entry,
+        add_shoot_vo_entry, add_shoot_bullet_note, add_blank,
+        add_bottom_border, add_top_border, make_run, add_angle_callout,
+    )
 
 
 def validate_content(content):

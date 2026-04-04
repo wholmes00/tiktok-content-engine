@@ -15,23 +15,34 @@ of this file. The generator validates the input before rendering.
 import os
 from docx import Document
 
-from templates.styles import (
-    # Colors
-    DARK, BLUE, GREEN, PURPLE, GRAY_TEXT, BODY_TEXT, RED,
-    # Sizes
-    SIZE_EDIT_TITLE, SIZE_SUBTITLE, SIZE_SECTION_HEADER, SIZE_SUB_HEADER,
-    SIZE_BODY_SMALL, SIZE_BODY_MEDIUM, SIZE_BODY, SIZE_EDIT_SECTION,
-    SIZE_EDIT_HERO_TITLE,
-    # Font
-    FONT_PRIMARY,
-    # Builders
-    add_centered_text, add_sub_header, add_blank, add_bullet_item,
-    add_top_border, make_run, add_angle_callout,
-    add_edit_hero_label, add_edit_hero_title, add_edit_hook_line,
-    add_edit_audio_line, add_edit_timeline_entry, add_edit_timeline_content,
-    add_edit_ost_entry, add_edit_remix_title, add_edit_remix_info,
-    add_edit_body_text,
-)
+try:
+    from templates.styles import (
+        DARK, BLUE, GREEN, PURPLE, GRAY_TEXT, BODY_TEXT, RED,
+        SIZE_EDIT_TITLE, SIZE_SUBTITLE, SIZE_SECTION_HEADER, SIZE_SUB_HEADER,
+        SIZE_BODY_SMALL, SIZE_BODY_MEDIUM, SIZE_BODY, SIZE_EDIT_SECTION,
+        SIZE_EDIT_HERO_TITLE,
+        FONT_PRIMARY,
+        add_centered_text, add_sub_header, add_blank, add_bullet_item,
+        add_top_border, make_run, add_angle_callout,
+        add_edit_hero_label, add_edit_hero_title, add_edit_hook_line,
+        add_edit_audio_line, add_edit_timeline_entry, add_edit_timeline_content,
+        add_edit_ost_entry, add_edit_remix_title, add_edit_remix_info,
+        add_edit_body_text,
+    )
+except ImportError:
+    from v2.templates.styles import (
+        DARK, BLUE, GREEN, PURPLE, GRAY_TEXT, BODY_TEXT, RED,
+        SIZE_EDIT_TITLE, SIZE_SUBTITLE, SIZE_SECTION_HEADER, SIZE_SUB_HEADER,
+        SIZE_BODY_SMALL, SIZE_BODY_MEDIUM, SIZE_BODY, SIZE_EDIT_SECTION,
+        SIZE_EDIT_HERO_TITLE,
+        FONT_PRIMARY,
+        add_centered_text, add_sub_header, add_blank, add_bullet_item,
+        add_top_border, make_run, add_angle_callout,
+        add_edit_hero_label, add_edit_hero_title, add_edit_hook_line,
+        add_edit_audio_line, add_edit_timeline_entry, add_edit_timeline_content,
+        add_edit_ost_entry, add_edit_remix_title, add_edit_remix_info,
+        add_edit_body_text,
+    )
 
 
 def validate_content(content):

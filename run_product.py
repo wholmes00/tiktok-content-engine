@@ -34,7 +34,6 @@ import argparse
 import json
 import os
 import re
-import subprocess
 import sys
 import time
 from pathlib import Path
@@ -487,41 +486,81 @@ def run_pipeline(args):
         save_json(output_dir / "edit_guide.json", edit_guide, "Edit Guide data")
 
     # ═════════════════════════════════════════════════════════
-    #  PASS 5+6: Generate DOCX Files
+    #  PASS 5: Content Validation Gate
     # ═════════════════════════════════════════════════════════
 
-    banner("PASS 5: Generate DOCX Files")
+    banner("PASS 5: Content Validation Gate")
 
-    shoot_guide_json = output_dir / "shoot_guide.json"
-    edit_guide_json = output_dir / "edit_guide.json"
+    from v2.pipeline.validate_content import validate_content_plan, print_content_validation_report
+
+    content_plan = {
+        "shoot_guide": shoot_guide,
+        "edit_guide": edit_guide,
+    }
+
+    cv_result = validate_content_plan(content_plan)
+    print_content_validation_report(cv_result)
+
+    if not cv_result["passed"]:
+        critical_count = sum(1 for f in cv_result["failures"] if f["severity"] == "critical")
+        if critical_count > 0:
+            print(f"\n  ⚠ {critical_count} CRITICAL validation failure(s).")
+            print(f"  Content may produce inconsistent guides. Review failures above.")
+        else:
+            print(f"\n  ⚠ {len(cv_result['failures'])} warning(s) — non-critical. Proceeding.")
+
+    # Quality scoring
+    from v2.pipeline.quality_scorer import score_content_plan, print_quality_report
+
+    quality = score_content_plan(content_plan)
+    print_quality_report(quality)
+
+    if not quality["production_ready"]:
+        print(f"\n  ⚠ Quality score {quality['total']}/100 (Grade {quality['grade']}) — below production threshold.")
+        print(f"  Documents will still be generated, but review scoring notes above.")
+
+    # Save content.json contract (combines shoot + edit into one file)
+    content_json_path = output_dir / "content.json"
+    content_plan["_validation"] = {
+        "passed": cv_result["passed"],
+        "critical_failures": cv_result["stats"].get("critical", 0),
+        "warnings": cv_result["stats"].get("warnings", 0),
+    }
+    content_plan["_quality"] = {
+        "total": quality["total"],
+        "grade": quality["grade"],
+        "production_ready": quality["production_ready"],
+        "dimensions": quality["dimensions"],
+    }
+    save_json(content_json_path, content_plan, "Content contract (shoot + edit)")
+
+    # ═════════════════════════════════════════════════════════
+    #  PASS 6: Generate DOCX Files (v2 Python generators)
+    # ═════════════════════════════════════════════════════════
+
+    banner("PASS 6: Generate DOCX Files")
+
+    from v2.templates.shoot_guide_generator import generate_shoot_guide as render_shoot_guide
+    from v2.templates.edit_guide_generator import generate_edit_guide as render_edit_guide
 
     shoot_guide_docx = output_dir / f"{slug}_Shoot_Guide.docx"
     edit_guide_docx = output_dir / f"{slug}_Edit_Guide.docx"
 
-    shoot_template = SCRIPT_DIR / CONFIG["output"]["shoot_guide_template"]
-    edit_template = SCRIPT_DIR / CONFIG["output"]["edit_guide_template"]
-
     # Generate Shoot Guide docx
-    if shoot_guide_json.exists():
-        result = subprocess.run(
-            ["node", str(shoot_template), str(shoot_guide_json), str(shoot_guide_docx)],
-            capture_output=True, text=True,
-        )
-        if result.returncode == 0:
+    if shoot_guide:
+        try:
+            render_shoot_guide(shoot_guide, str(shoot_guide_docx))
             print(f"  ✓ {shoot_guide_docx.name}")
-        else:
-            print(f"  ✗ Shoot Guide docx failed: {result.stderr}")
+        except (ValueError, Exception) as e:
+            print(f"  ✗ Shoot Guide docx failed: {e}")
 
     # Generate Edit Guide docx
-    if edit_guide_json.exists():
-        result = subprocess.run(
-            ["node", str(edit_template), str(edit_guide_json), str(edit_guide_docx)],
-            capture_output=True, text=True,
-        )
-        if result.returncode == 0:
+    if edit_guide:
+        try:
+            render_edit_guide(edit_guide, str(edit_guide_docx))
             print(f"  ✓ {edit_guide_docx.name}")
-        else:
-            print(f"  ✗ Edit Guide docx failed: {result.stderr}")
+        except (ValueError, Exception) as e:
+            print(f"  ✗ Edit Guide docx failed: {e}")
 
     # ═════════════════════════════════════════════════════════
     #  SUMMARY
@@ -552,6 +591,9 @@ def run_pipeline(args):
             "hooks": CONFIG["pipeline"]["default_model"],
             "scripts": CONFIG["pipeline"]["script_model"],
         },
+        "quality_score": quality["total"] if 'quality' in dir() else None,
+        "quality_grade": quality["grade"] if 'quality' in dir() else None,
+        "production_ready": quality["production_ready"] if 'quality' in dir() else None,
         "output_files": [f.name for f in sorted(output_dir.iterdir())],
     }
     save_json(output_dir / "run_manifest.json", manifest, "Run manifest")
