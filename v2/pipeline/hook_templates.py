@@ -373,12 +373,170 @@ def print_template_report():
     print("=" * 70)
 
 
+# ─── Template Auto-Refresh ──────────────────────────────────────────────────
+#
+# Monthly scan: queries all hooks from the database, attempts to match each
+# to an existing template, and identifies high-performing "orphan" hooks
+# that don't fit any template. These become candidates for new templates.
+#
+# This runs on a schedule (monthly) and produces a report. New templates
+# are NOT auto-added — they're surfaced as candidates for human review.
+
+# Simple structural patterns we look for when matching hooks to templates
+TEMPLATE_SIGNATURES = {
+    "HT1": [r"^stop\b", r"^don'?t\b"],
+    "HT2": [r"be careful", r"please be careful", r"careful when"],
+    "HT3": [r"people don'?t realize", r"nobody realizes", r"most people don'?t know"],
+    "HT4": [r"^this is what", r"this is what .* (came|happened|looks)"],
+    "HT5": [r"^i used to (literally )?(dread|hate|avoid)", r"i literally (dread|hate)"],
+    "HT6": [r"^if you (have|get|are|work|live)", r"i would definitely"],
+    "HT7": [r"^do you see", r"see this\?"],
+    "HT8": [r"^what'?s it worth", r"worth .* to (you|finally)"],
+    "HT9": [r"^can (somebody|someone) explain", r"why (did|didn'?t) (nobody|anyone)"],
+    "HT10": [r"^you (want|wanna) (to )?see something"],
+    "HT11": [r"^\d+\s*(grams?|calories|mg|%|million|k\b)", r"^\$?\d+"],
+    "HT12": [r"^i don'?t know about you", r"i'?m about to"],
+}
+
+
+def match_hook_to_template(hook_text):
+    """
+    Try to match a hook to an existing template by structural pattern.
+    Returns template ID if matched, None if orphan.
+    """
+    import re
+    text = hook_text.lower().strip()
+    for tmpl_id, patterns in TEMPLATE_SIGNATURES.items():
+        for pattern in patterns:
+            if re.search(pattern, text):
+                return tmpl_id
+    return None
+
+
+def refresh_templates(min_engagement=50000, verbose=True):
+    """
+    Scan the database for hooks that don't match existing templates.
+
+    Steps:
+    1. Pull all hooks from hook_patterns table
+    2. Match each to existing templates via structural patterns
+    3. Identify high-performing orphans (no template match + above threshold)
+    4. Cluster orphans by structural similarity
+    5. Return report with candidate new templates
+
+    Args:
+        min_engagement: Minimum avg engagement for an orphan to be considered
+        verbose: Print progress and results
+
+    Returns:
+        dict with:
+            - total_hooks: int
+            - matched: list of {hook, template_id, engagement}
+            - orphans: list of {hook, engagement, category}
+            - candidates: list of {pattern, hooks, avg_engagement}
+            - coverage_pct: float (% of hooks matched to templates)
+    """
+    # Pull all hooks
+    hooks = supabase.table("hook_patterns").select(
+        "hook_text, hook_category, avg_engagement_rate"
+    ).execute().data
+
+    if verbose:
+        print(f"\n{'=' * 60}")
+        print(f"  HOOK TEMPLATE REFRESH SCAN")
+        print(f"{'=' * 60}")
+        print(f"  Total hooks in database: {len(hooks)}")
+        print(f"  Existing templates: {len(HOOK_TEMPLATES)}")
+        print(f"  Min engagement for candidates: {min_engagement:,}")
+
+    matched = []
+    orphans = []
+
+    for h in hooks:
+        text = h.get("hook_text", "")
+        eng = h.get("avg_engagement_rate", 0) or 0
+        cat = h.get("hook_category", "unknown")
+
+        tmpl_id = match_hook_to_template(text)
+        if tmpl_id:
+            matched.append({"hook": text, "template_id": tmpl_id, "engagement": eng})
+        else:
+            orphans.append({"hook": text, "engagement": eng, "category": cat})
+
+    # Sort orphans by engagement
+    orphans.sort(key=lambda x: x["engagement"], reverse=True)
+
+    # High-performing orphans are template candidates
+    high_orphans = [o for o in orphans if o["engagement"] >= min_engagement]
+
+    # Cluster high orphans by category
+    from collections import defaultdict
+    by_cat = defaultdict(list)
+    for o in high_orphans:
+        by_cat[o["category"]].append(o)
+
+    candidates = []
+    for cat, cat_orphans in sorted(by_cat.items(), key=lambda x: -max(o["engagement"] for o in x[1])):
+        avg_eng = sum(o["engagement"] for o in cat_orphans) / len(cat_orphans)
+        candidates.append({
+            "category": cat,
+            "hooks": [o["hook"] for o in cat_orphans],
+            "avg_engagement": round(avg_eng),
+            "count": len(cat_orphans),
+            "top_engagement": max(o["engagement"] for o in cat_orphans),
+        })
+
+    coverage_pct = (len(matched) / len(hooks) * 100) if hooks else 0
+
+    if verbose:
+        print(f"\n  TEMPLATE COVERAGE:")
+        print(f"  {'─' * 50}")
+        print(f"  Matched to templates: {len(matched)}/{len(hooks)} ({coverage_pct:.1f}%)")
+        print(f"  Orphans (no template): {len(orphans)}")
+        print(f"  High-performing orphans (>{min_engagement:,}): {len(high_orphans)}")
+
+        if matched:
+            from collections import Counter
+            tmpl_counts = Counter(m["template_id"] for m in matched)
+            print(f"\n  TEMPLATE USAGE:")
+            for tmpl_id, count in tmpl_counts.most_common():
+                tmpl_name = next((t["name"] for t in HOOK_TEMPLATES if t["id"] == tmpl_id), "?")
+                print(f"    {tmpl_id} ({tmpl_name}): {count} hooks matched")
+
+        if candidates:
+            print(f"\n  NEW TEMPLATE CANDIDATES:")
+            print(f"  {'─' * 50}")
+            for c in candidates:
+                print(f"  Category: {c['category']} | {c['count']} hooks | avg {c['avg_engagement']:,} | top {c['top_engagement']:,}")
+                for hook in c["hooks"][:3]:
+                    print(f"    → \"{hook[:70]}\"")
+                if c["count"] > 3:
+                    print(f"    ... and {c['count'] - 3} more")
+        else:
+            print(f"\n  No new template candidates found above {min_engagement:,} engagement.")
+            print(f"  All high-performing hooks are covered by existing templates.")
+
+        print(f"\n{'=' * 60}")
+
+    return {
+        "total_hooks": len(hooks),
+        "matched": matched,
+        "orphans": orphans,
+        "candidates": candidates,
+        "coverage_pct": round(coverage_pct, 1),
+    }
+
+
 if __name__ == "__main__":
-    print_template_report()
-    print("\n--- Template Prompt Preview ---")
-    prompt = build_hook_template_prompt(
-        "BoomBoom Nasal Stick",
-        content_angles=["shock_curiosity", "fear_urgency", "before_after", "problem_solution"]
-    )
-    print(prompt[:3000])
-    print("...")
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "refresh":
+        refresh_templates()
+    else:
+        print_template_report()
+        print("\n--- Template Prompt Preview ---")
+        prompt = build_hook_template_prompt(
+            "BoomBoom Nasal Stick",
+            content_angles=["shock_curiosity", "fear_urgency", "before_after", "problem_solution"]
+        )
+        print(prompt[:3000])
+        print("...")
