@@ -13,12 +13,10 @@ ensuring generated hooks follow proven structural patterns rather
 than being invented from scratch.
 """
 
-from supabase import create_client
-
-SUPABASE_URL = "https://owklfaoaxdrggmbtcwpn.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im93a2xmYW9heGRyZ2dtYnRjd3BuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0NDQyNjcsImV4cCI6MjA4OTAyMDI2N30.EQkJzeS4MYG4QO6aH9c_zbF7BNuH_bKwZIKQpTXvw1Y"
-
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+try:
+    from v2.pipeline.db import supabase
+except ImportError:
+    from db import supabase
 
 
 # ─── Hook Templates (decomposed from top performers) ─────────────────────────
