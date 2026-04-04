@@ -6,11 +6,12 @@ and generates video concepts, hooks, script outlines, shot lists, and CTAs.
 """
 
 import json
+import os
 from supabase import create_client
 
-# --- Configuration ---
-SUPABASE_URL = "https://owklfaoaxdrggmbtcwpn.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im93a2xmYW9heGRyZ2dtYnRjd3BuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0NDQyNjcsImV4cCI6MjA4OTAyMDI2N30.EQkJzeS4MYG4QO6aH9c_zbF7BNuH_bKwZIKQpTXvw1Y"
+# --- Configuration (env vars override defaults) ---
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://owklfaoaxdrggmbtcwpn.supabase.co")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im93a2xmYW9heGRyZ2dtYnRjd3BuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0NDQyNjcsImV4cCI6MjA4OTAyMDI2N30.EQkJzeS4MYG4QO6aH9c_zbF7BNuH_bKwZIKQpTXvw1Y")
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 

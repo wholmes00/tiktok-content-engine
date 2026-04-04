@@ -19,16 +19,18 @@ from pathlib import Path
 from datetime import datetime
 
 # Add local bin to path for yt-dlp
-os.environ["PATH"] = "/sessions/fervent-admiring-brown/.local/bin:" + os.environ.get("PATH", "")
+_local_bin = os.path.expanduser("~/.local/bin")
+if _local_bin not in os.environ.get("PATH", ""):
+    os.environ["PATH"] = _local_bin + ":" + os.environ.get("PATH", "")
 
 from supabase import create_client
 from faster_whisper import WhisperModel
 
-# --- Configuration ---
-SUPABASE_URL = "https://owklfaoaxdrggmbtcwpn.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im93a2xmYW9heGRyZ2dtYnRjd3BuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0NDQyNjcsImV4cCI6MjA4OTAyMDI2N30.EQkJzeS4MYG4QO6aH9c_zbF7BNuH_bKwZIKQpTXvw1Y"
-WORK_DIR = "/sessions/fervent-admiring-brown/tiktok_engine/processing"
-FRAMES_DIR = "/sessions/fervent-admiring-brown/tiktok_engine/frames"
+# --- Configuration (env vars override defaults) ---
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://owklfaoaxdrggmbtcwpn.supabase.co")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im93a2xmYW9heGRyZ2dtYnRjd3BuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0NDQyNjcsImV4cCI6MjA4OTAyMDI2N30.EQkJzeS4MYG4QO6aH9c_zbF7BNuH_bKwZIKQpTXvw1Y")
+WORK_DIR = os.environ.get("WORK_DIR", os.path.join(os.path.dirname(__file__), "processing"))
+FRAMES_DIR = os.environ.get("FRAMES_DIR", os.path.join(os.path.dirname(__file__), "frames"))
 
 # --- Standardized enums ---
 VALID_CONTENT_TYPES = [
