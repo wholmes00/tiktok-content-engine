@@ -468,20 +468,29 @@
         ],
         "onscreen_text": [
           {
-            "timestamp": "[0:00-0:04]",
-            "text": "TikTok made me order this 😳"
+            "timestamp": "[0:00-0:02]",
+            "text": "you wanna see something crazy 👀",
+            "ost_template": "OST4"
+          },
+          {
+            "timestamp": "[0:05-0:09]",
+            "text": "just breathe in?? that's IT??",
+            "ost_template": "ORIGINAL"
           },
           {
             "timestamp": "[0:09-0:12]",
-            "text": "WAIT FOR IT"
+            "text": "WAIT FOR IT 😳",
+            "ost_template": "OST4"
           },
           {
             "timestamp": "[0:18-0:22]",
-            "text": "just essential oils?! 10M sold."
+            "text": "just essential oils. 10M sold. 🦈",
+            "ost_template": "OST7"
           },
           {
             "timestamp": "[0:22-0:24]",
-            "text": "Link below ⬇️"
+            "text": "link below ⬇️",
+            "ost_template": "OST9"
           }
         ],
         "hook_template": "HT10"
@@ -531,19 +540,23 @@
         "onscreen_text": [
           {
             "timestamp": "[0:00-0:03]",
-            "text": "can't breathe? stop scrolling 🛑"
+            "text": "STOP mouth breathing through the night 🛑",
+            "ost_template": "OST3"
           },
           {
             "timestamp": "[0:03-0:07]",
-            "text": "4 days congested. couldn't sleep."
+            "text": "4 days. couldn't sleep. throat wrecked.",
+            "ost_template": "OST6"
           },
           {
             "timestamp": "[0:12-0:17]",
-            "text": "INSTANT relief 😮‍💨"
+            "text": "INSTANT relief 😮‍💨 one breath.",
+            "ost_template": "OST4"
           },
           {
             "timestamp": "[0:17-0:22]",
-            "text": "ordered more. Link below ⬇️"
+            "text": "ordered more. not doing that again. link ⬇️",
+            "ost_template": "OST9"
           }
         ],
         "hook_template": "HT1"
@@ -598,19 +611,28 @@
         "onscreen_text": [
           {
             "timestamp": "[0:00-0:02]",
-            "text": "watch my face 👀"
+            "text": "do you see this? 👀",
+            "ost_template": "OST4"
           },
           {
-            "timestamp": "[0:04-0:10]",
-            "text": "⏱️ 10 seconds"
+            "timestamp": "[0:02-0:04]",
+            "text": "BEFORE: can't breathe through nose",
+            "ost_template": "OST8"
           },
           {
-            "timestamp": "[0:10-0:14]",
-            "text": "before → after. one breath."
+            "timestamp": "[0:07-0:10]",
+            "text": "AFTER: everything clear. one breath.",
+            "ost_template": "OST8"
+          },
+          {
+            "timestamp": "[0:14-0:19]",
+            "text": "essential oils only. 10M sold 🦈",
+            "ost_template": "OST7"
           },
           {
             "timestamp": "[0:19-0:21]",
-            "text": "10M sold 🦈 Link below"
+            "text": "link below ⬇️",
+            "ost_template": "OST9"
           }
         ],
         "hook_template": "HT7"
@@ -660,19 +682,23 @@
         "onscreen_text": [
           {
             "timestamp": "[0:00-0:03]",
-            "text": "tired mom energy 😩"
+            "text": "CONGESTED EVERY MORNING 😩",
+            "ost_template": "OST6"
           },
           {
             "timestamp": "[0:05-0:07]",
-            "text": "my daily reset ✨"
+            "text": "every day was a fog",
+            "ost_template": "ORIGINAL"
           },
           {
             "timestamp": "[0:10-0:16]",
-            "text": "better than coffee ☕"
+            "text": "✨ one breath = lights back on",
+            "ost_template": "OST1"
           },
           {
             "timestamp": "[0:16-0:20]",
-            "text": "Link below ⬇️"
+            "text": "better than coffee. ~$5. link ⬇️",
+            "ost_template": "OST9"
           }
         ],
         "hook_template": "HT5"
@@ -722,19 +748,23 @@
         "onscreen_text": [
           {
             "timestamp": "[0:00-0:04]",
-            "text": "finally tried it 🙄➡️😳"
+            "text": "people don't realize 🤯",
+            "ost_template": "OST3"
           },
           {
             "timestamp": "[0:04-0:08]",
-            "text": "10M sold. Shark Tank. ok fine."
+            "text": "10M sold. Shark Tank. ok fine.",
+            "ost_template": "OST7"
           },
           {
             "timestamp": "[0:10-0:12]",
-            "text": "…oh."
+            "text": "…oh. 😳",
+            "ost_template": "OST4"
           },
           {
             "timestamp": "[0:17-0:22]",
-            "text": "I hate when TikTok is right 😤 Link below"
+            "text": "ordered 3 more. link below ⬇️",
+            "ost_template": "OST9"
           }
         ],
         "hook_template": "HT3"
@@ -762,11 +792,11 @@
           "B4 — Ingredients label close-up (credibility: menthol, eucalyptus, peppermint)"
         ],
         "onscreen_text_script": [
-          "[0:00-0:03] couldn't breathe for 4 days 🤧",
-          "[0:05-0:08] tried everything. nothing worked.",
-          "[0:10-0:14] one breath and everything opened",
-          "[0:16-0:19] ordered a bunch. not doing that again.",
-          "[0:20-0:23] Link below ⬇️"
+          "[0:00-0:03] COULDN'T BREATHE FOR 4 DAYS 🤧 | OST6",
+          "[0:05-0:08] tried everything. nothing worked. | ORIGINAL",
+          "[0:10-0:14] one breath = everything opened 😮‍💨 | OST4",
+          "[0:16-0:19] menthol + eucalyptus + peppermint | OST7",
+          "[0:20-0:23] link below ⬇️ | OST9"
         ],
         "voiceover_script": "Use VO2 from Shoot Guide."
       },
@@ -792,11 +822,11 @@
           "B4 — Flips to read ingredients — just essential oils?"
         ],
         "onscreen_text_script": [
-          "[0:00-0:02] ordered this off TikTok. no idea what to expect.",
-          "[0:04-0:06] it says just breathe in??",
-          "[0:08-0:10] wait for it 😳",
-          "[0:11-0:13] BRO.",
-          "[0:14-0:17] BoomBoom nasal stick. 10M sold. Link below ⬇️"
+          "[0:00-0:02] ordered this off TikTok 📦 no idea what to expect | OST1",
+          "[0:04-0:06] it says just breathe in?? | ORIGINAL",
+          "[0:08-0:10] wait for it 😳 | OST4",
+          "[0:11-0:13] BRO. 🤯 | OST4",
+          "[0:14-0:17] BoomBoom nasal stick. 10M sold. link ⬇️ | OST9"
         ],
         "voiceover_script": null
       },
@@ -822,11 +852,11 @@
           "B4 — Ingredients label (what made it happen)"
         ],
         "onscreen_text_script": [
-          "[0:00-0:03] watch what happens in 10 seconds 👀",
-          "[0:04-0:07] BEFORE: can't breathe",
-          "[0:10-0:13] AFTER: everything clear",
-          "[0:15-0:18] essential oils only. 10M sold.",
-          "[0:19-0:22] Link below ⬇️"
+          "[0:00-0:03] BEFORE: can't breathe 🤧 | OST8",
+          "[0:04-0:07] watch what happens in 10 seconds 👀 | OST4",
+          "[0:10-0:13] AFTER: everything clear 😮‍💨 | OST8",
+          "[0:15-0:18] essential oils only. 10M sold 🦈 | OST7",
+          "[0:19-0:22] link below ⬇️ | OST9"
         ],
         "voiceover_script": "Use VO1 from Shoot Guide."
       },
@@ -852,10 +882,10 @@
           "B3 — Brand close-up"
         ],
         "onscreen_text_script": [
-          "[0:00-0:03] tired mom. can barely function. 😩",
-          "[0:05-0:08] my daily reset button",
-          "[0:10-0:13] one breath = lights back on",
-          "[0:15-0:18] better than coffee. ~$5. Link ⬇️"
+          "[0:00-0:03] TIRED MOM. can barely function. 😩 | OST6",
+          "[0:05-0:08] ✨ my daily reset button | OST1",
+          "[0:10-0:13] one breath = lights back on 💡 | OST4",
+          "[0:15-0:18] better than coffee. ~$5. link ⬇️ | OST9"
         ],
         "voiceover_script": "Use VO3 from Shoot Guide."
       },
@@ -881,11 +911,11 @@
           "B3 — Product close-up in morning light on nightstand"
         ],
         "onscreen_text_script": [
-          "[0:00-0:02] before coffee. before phone.",
-          "[0:04-0:06] this.",
-          "[0:08-0:11] essential oil nasal stick",
-          "[0:12-0:14] one breath = awake",
-          "[0:15-0:17] Link below ⬇️"
+          "[0:00-0:02] ✨ before coffee. before phone. | OST1",
+          "[0:04-0:06] this. 👆 | ORIGINAL",
+          "[0:08-0:11] essential oil nasal stick | OST7",
+          "[0:12-0:14] one breath = awake ☀️ | OST4",
+          "[0:15-0:17] link below ⬇️ | OST9"
         ],
         "voiceover_script": null
       }

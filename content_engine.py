@@ -1945,7 +1945,7 @@ def score_and_rank_hooks(hook_texts, product_brief, db_hooks):
 def generate_scripts_prompt(product_brief, research_context, structural_rules,
                             use_case_rules, locked_hooks, persona_context="",
                             web_research="", product_research="",
-                            angle_constraints=""):
+                            angle_constraints="", ost_constraints=""):
     """
     PASS 4: Generate full scripts with PRE-LOCKED hooks.
 
@@ -2026,6 +2026,8 @@ THE GOLDEN TEST: Before writing any line, ask: "Would this person actually say t
 {use_case_rules}
 
 {angle_constraints}
+
+{ost_constraints}
 
 ═══════════════════════════════════════
 PRE-LOCKED HOOKS (DO NOT CHANGE THESE)
@@ -2366,6 +2368,14 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
     angle_rankings = get_angle_rankings()
     print(f"  Angle rankings loaded — top angle: {angle_rankings[0]['angle']} (score {angle_rankings[0]['weighted_score']:,})")
 
+    # Build OST constraints from database (Improvement #3)
+    try:
+        from tiktok_engine.v2.pipeline.ost_patterns import build_ost_constraint_prompt
+    except ImportError:
+        from v2.pipeline.ost_patterns import build_ost_constraint_prompt
+    ost_constraints = build_ost_constraint_prompt()
+    print(f"  OST constraints ready ({len(ost_constraints)} chars)")
+
     scripts_prompt = generate_scripts_prompt(
         product_brief=product_brief,
         research_context=research_context,
@@ -2376,6 +2386,7 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
         web_research=web_research,
         product_research=product_research,
         angle_constraints=angle_constraints,
+        ost_constraints=ost_constraints,
     )
 
     print(f"  Scripts prompt ready ({len(scripts_prompt)} chars)")
