@@ -208,24 +208,22 @@ def add_shoot_th_header(doc, code, product, title):
 def add_shoot_script_line(doc, code, tag, script_text, is_direction=False):
     """Add a script line in the shoot guide format.
 
-    Format: "TH1-a   ON CAMERA   'script text here'"
-    Three runs:
-      - Code (Arial Narrow, gray, bold, 9pt)
+    Format: "ON CAMERA   'script text here'"
+    Two runs:
       - Tag (Arial, blue or purple, bold, 8pt)
       - Script (Arial, body text or gray for directions, 9.5pt)
+
+    Note: TH line codes (TH1-a, TH1-b) are intentionally omitted —
+    only the tag (ON CAMERA / VOICEOVER) is shown.
     """
     p = doc.add_paragraph()
 
-    # Run 1: TH code
-    make_run(p, code, font=FONT_NARROW, size=SIZE_BODY_SMALL,
-             color=GRAY_TEXT, bold=True)
-
-    # Run 2: Tag (ON CAMERA = blue, VOICEOVER = purple)
+    # Run 1: Tag (ON CAMERA = blue, VOICEOVER = purple)
     tag_color = PURPLE if "VOICEOVER" in tag.upper() else BLUE
-    make_run(p, f"   {tag}   ", font=FONT_PRIMARY, size=SIZE_TAG,
+    make_run(p, f"{tag}   ", font=FONT_PRIMARY, size=SIZE_TAG,
              color=tag_color, bold=True)
 
-    # Run 3: Script text or direction
+    # Run 2: Script text or direction
     text_color = GRAY_TEXT if is_direction else BODY_TEXT
     make_run(p, script_text, font=FONT_PRIMARY, size=SIZE_BODY,
              color=text_color)
@@ -405,6 +403,20 @@ def add_edit_timeline_content(doc, text):
     """Add indented content under a timeline entry."""
     p = doc.add_paragraph()
     make_run(p, text, size=SIZE_BODY_SMALL, color=BODY_TEXT)
+    set_left_indent(p, 400)
+    return p
+
+
+def add_edit_timeline_script(doc, text):
+    """Add spoken script line under a timeline entry, indented and styled.
+
+    Renders as italic blue text showing what the creator says at this point.
+    Format: 'ON CAMERA: "script text here"' or 'VOICEOVER: "script text"'
+    """
+    p = doc.add_paragraph()
+    make_run(p, text, size=SIZE_BODY_SMALL, color=BLUE)
+    run = p.runs[0]
+    run.italic = True
     set_left_indent(p, 400)
     return p
 

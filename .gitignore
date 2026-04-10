@@ -14,6 +14,10 @@ package-lock.json
 # Frames (video analysis — too large for repo)
 frames/
 
+# Ingestion media files (too large for repo)
+ingestion/audio/
+ingestion/videos/
+
 # Generated documents (rebuild from content.json)
 *.docx
 !v2/templates/approved/*.docx

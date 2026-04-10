@@ -491,17 +491,24 @@ def run_pipeline(args):
 
     banner("PASS 4c: Transform to Content Contract")
 
-    from v2.pipeline.transform import transform_shoot_guide, transform_edit_guide
+    from v2.pipeline.transform import transform_to_v3
 
-    shoot_content = transform_shoot_guide(shoot_guide, product_name, creator_name) if shoot_guide else None
-    edit_content = transform_edit_guide(edit_guide, product_name, creator_name) if edit_guide else None
+    if shoot_guide and edit_guide:
+        edit_content, shoot_content = transform_to_v3(
+            shoot_guide, edit_guide, product_name, creator_name, analysis_count=128
+        )
+    else:
+        edit_content = None
+        shoot_content = None
 
-    if shoot_content:
-        save_json(output_dir / "shoot_guide_v2.json", shoot_content, "Shoot Guide (v2 schema)")
-        print(f"  Transformed: {len(shoot_content.get('heroes',[]))} heroes, {len(shoot_content.get('broll',[]))} b-roll, {len(shoot_content.get('voiceovers',[]))} VOs")
     if edit_content:
-        save_json(output_dir / "edit_guide_v2.json", edit_content, "Edit Guide (v2 schema)")
-        print(f"  Transformed: {len(edit_content.get('heroes',[]))} heroes, {len(edit_content.get('remixes',[]))} remixes")
+        save_json(output_dir / "edit_guide_v3.json", edit_content, "Edit Guide (v3 schema)")
+        heroes = [v for v in edit_content.get("videos", []) if v["type"] == "hero"]
+        remixes = [v for v in edit_content.get("videos", []) if v["type"] == "remix"]
+        print(f"  Transformed: {len(heroes)} heroes, {len(remixes)} remixes → {len(edit_content['videos'])} video concepts")
+    if shoot_content:
+        save_json(output_dir / "shoot_guide_v3.json", shoot_content, "Shoot Guide (v3 schema)")
+        print(f"  Derived: {len(shoot_content.get('on_camera',[]))} on-camera groups, {len(shoot_content.get('broll',[]))} b-roll, {len(shoot_content.get('voiceovers',[]))} VOs")
 
     # ═════════════════════════════════════════════════════════
     #  PASS 5: Content Validation Gate
@@ -511,7 +518,11 @@ def run_pipeline(args):
 
     from v2.pipeline.validate_content import validate_content_plan, print_content_validation_report
 
+    # Build content plan — v3 format stores both under their own keys
     content_plan = {
+        "edit_guide_v3": edit_content,
+        "shoot_guide_v3": shoot_content,
+        # Legacy keys for validator compatibility
         "shoot_guide": shoot_content,
         "edit_guide": edit_content,
     }
@@ -558,27 +569,27 @@ def run_pipeline(args):
 
     banner("PASS 6: Generate DOCX Files")
 
-    from v2.templates.shoot_guide_generator import generate_shoot_guide as render_shoot_guide
     from v2.templates.edit_guide_generator import generate_edit_guide as render_edit_guide
+    from v2.templates.shoot_guide_generator import generate_shoot_guide as render_shoot_guide
 
-    shoot_guide_docx = output_dir / f"{slug}_Shoot_Guide.docx"
     edit_guide_docx = output_dir / f"{slug}_Edit_Guide.docx"
+    shoot_guide_docx = output_dir / f"{slug}_Shoot_Guide.docx"
 
-    # Generate Shoot Guide docx
-    if shoot_content:
-        try:
-            render_shoot_guide(shoot_content, str(shoot_guide_docx))
-            print(f"  ✓ {shoot_guide_docx.name}")
-        except (ValueError, Exception) as e:
-            print(f"  ✗ Shoot Guide docx failed: {e}")
-
-    # Generate Edit Guide docx
+    # Generate Edit Guide docx (Document 1 — video concepts)
     if edit_content:
         try:
             render_edit_guide(edit_content, str(edit_guide_docx))
             print(f"  ✓ {edit_guide_docx.name}")
         except (ValueError, Exception) as e:
             print(f"  ✗ Edit Guide docx failed: {e}")
+
+    # Generate Shoot Guide docx (Document 2 — derived shooting checklist)
+    if shoot_content:
+        try:
+            render_shoot_guide(shoot_content, str(shoot_guide_docx))
+            print(f"  ✓ {shoot_guide_docx.name}")
+        except (ValueError, Exception) as e:
+            print(f"  ✗ Shoot Guide docx failed: {e}")
 
     # ═════════════════════════════════════════════════════════
     #  SUMMARY
@@ -644,6 +655,7 @@ The Edit Guide must be a JSON object with this exact structure:
     {{
       "title": "Hero 1 — [concept]",
       "angle": "...",
+      "hook_template": "<HT# from shoot guide — MUST include>",
       "format": "Talking Head + B-Roll",
       "duration": "30-45s",
       "music": "...",
@@ -665,8 +677,8 @@ The Edit Guide must be a JSON object with this exact structure:
           "description": "description of what's on screen"
         }}
       ],
-      "ctaStrategy": ["bullet points about CTA placement"],
-      "onScreenText": ["[0:00] text overlay description"]
+      "ctaStrategy": ["mid-roll value prop CTA", "closing urgency CTA — MUST be the final element"],
+      "onScreenText": ["[0:00] hook text (max 4 cards total — LAST card MUST be a CTA)"]
     }}
   ],
   "remixVideos": [
@@ -678,8 +690,8 @@ The Edit Guide must be a JSON object with this exact structure:
       "music": "...",
       "voiceoverScript": "full voiceover text",
       "shotAssembly": ["B2 — description", "B5 — description"],
-      "onScreenText": ["[0:00] text overlay"],
-      "cta": "CTA description"
+      "onScreenText": ["[0:00] text overlay (max 3 cards — LAST card MUST be a CTA)"],
+      "cta": "CTA description — REQUIRED, every remix MUST have a closing CTA"
     }}
   ],
   "uploadDetails": {{
@@ -698,6 +710,25 @@ RULES:
 - Include timestamps for every spoken script line and visual timeline entry
 - CTA strategy should specify mid-roll and closing CTA approaches
 - Keep the language consistent with the persona in the shoot guide scripts
+- Include the "hook_template" field from each hero's shoot guide data (e.g. "HT3", "HT5", "ORIGINAL")
+
+ON-SCREEN TEXT LIMITS (DATA-DRIVEN — MANDATORY):
+Our analysis of 128 top-performing TikTok affiliate videos shows:
+- 83% of top videos use 1-2 on-screen text cards total
+- Maximum 4 OST cards per hero video (HARD LIMIT — do NOT exceed this)
+- Maximum 3 OST cards per remix video
+- The hook OST should appear at 0:00-0:02 (first 2 seconds)
+- Any CTA OST should appear in the final 15% of the video
+- Less is more — viewers skip videos with too much text on screen
+
+CTA PLACEMENT (DATA-DRIVEN — MANDATORY):
+Every hero video and every remix video MUST end with a clear call-to-action.
+- Each hero MUST have a CTA in its final spokenScript entry AND in its ctaStrategy
+- Each remix MUST have a "cta" field with explicit closing CTA text
+- CTA types proven to work: "link in bio", "orange shopping cart", "link below", "tap the link"
+- Mid-roll CTAs (around 40-60% of video) should be value_proposition style
+- Closing CTAs (final 10-15% of video) should be urgency/scarcity style
+- The LAST item in onScreenText for every video MUST be a CTA overlay
 
 Return ONLY the JSON. No markdown, no explanation."""
 

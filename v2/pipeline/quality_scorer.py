@@ -41,6 +41,14 @@ def score_content_plan(content_plan):
     shoot = content_plan.get("shoot_guide", {})
     edit = content_plan.get("edit_guide", {})
 
+    # v3 compatibility: adapt v3 schemas to v2 for scoring
+    if shoot and "on_camera" in shoot and "heroes" not in shoot:
+        from v2.pipeline.validate_content import _adapt_v3_shoot_to_v2
+        shoot = _adapt_v3_shoot_to_v2(shoot)
+    if edit and "videos" in edit and "heroes" not in edit:
+        from v2.pipeline.validate_content import _adapt_v3_edit_to_v2
+        edit = _adapt_v3_edit_to_v2(edit)
+
     details = []
 
     hook_score = _score_hook_strength(shoot, details)
@@ -233,17 +241,19 @@ def _score_cta_engagement(shoot, edit, details):
                 score -= 2
                 details.append(f"CTA: Remix {i+1} last OST card isn't a CTA (-2)")
 
-    # Check upload_details completeness
+    # Upload details scoring (optional — v3 docs removed these sections)
+    # Only penalize if upload_details exists but is incomplete
     ud = edit.get("upload_details", {})
-    if not ud.get("hashtags"):
-        score -= 2
-        details.append("CTA: No hashtags in upload_details (-2)")
-    if not ud.get("captions"):
-        score -= 2
-        details.append("CTA: No captions in upload_details (-2)")
-    if not ud.get("schedule"):
-        score -= 2
-        details.append("CTA: No posting schedule (-2)")
+    if ud and any(ud.values()):  # Only score if upload_details has content
+        if not ud.get("hashtags"):
+            score -= 2
+            details.append("CTA: No hashtags in upload_details (-2)")
+        if not ud.get("captions"):
+            score -= 2
+            details.append("CTA: No captions in upload_details (-2)")
+        if not ud.get("schedule"):
+            score -= 2
+            details.append("CTA: No posting schedule (-2)")
 
     return max(0, min(25, score))
 

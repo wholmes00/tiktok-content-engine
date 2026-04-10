@@ -1,0 +1,657 @@
+{
+  "7602822534198775053": {
+    "shot_breakdown": {
+      "total_frames": 12,
+      "face_frames": 0,
+      "broll_frames": 12,
+      "shot_counts": {
+        "FACE": 0,
+        "PRODUCT_CLOSEUP": 4,
+        "HANDS_ON_DEMO": 6,
+        "LIFESTYLE": 1,
+        "TEXT_SCREEN": 0,
+        "TRANSITION": 0,
+        "BEFORE_AFTER": 0,
+        "PACKAGING": 1,
+        "SCREEN_RECORDING": 0
+      },
+      "dominant_broll_type": "HANDS_ON_DEMO",
+      "secondary_broll_type": "PRODUCT_CLOSEUP",
+      "shot_sequence": [
+        "LIFESTYLE",
+        "PRODUCT_CLOSEUP",
+        "PRODUCT_CLOSEUP",
+        "HANDS_ON_DEMO",
+        "HANDS_ON_DEMO",
+        "HANDS_ON_DEMO",
+        "HANDS_ON_DEMO",
+        "PACKAGING",
+        "HANDS_ON_DEMO",
+        "HANDS_ON_DEMO",
+        "PRODUCT_CLOSEUP",
+        "PRODUCT_CLOSEUP"
+      ],
+      "analysis_confidence": "high",
+      "notes": "Video is entirely B-roll demonstration with persistent overlay text. No talking head or face shots. Heavy focus on hands-on product demonstration in toilet bowl setting, establishing context and product benefit through visual evidence."
+    },
+    "onscreen_text": [
+      {
+        "timestamp_position": "beginning",
+        "text_content": "EVERYTIME A GIRL COME TO MY CRIB AND SEE THIS....",
+        "text_type": "hook_banner",
+        "is_persistent": true
+      },
+      {
+        "timestamp_position": "middle",
+        "text_content": "WELCOME",
+        "text_type": "cta_overlay",
+        "is_persistent": false
+      }
+    ],
+    "ctas": [
+      {
+        "timestamp_position": "end",
+        "cta_text": "I'm gonna link it at the bottom of the whistle name",
+        "cta_type": "verbal",
+        "cta_position": "end"
+      },
+      {
+        "timestamp_position": "end",
+        "cta_text": "I'm gonna link this at the bottom, bro",
+        "cta_type": "verbal",
+        "cta_position": "end"
+      }
+    ],
+    "visual_notes": {
+      "format_type": "product_demo",
+      "hook_style": "curiosity",
+      "scene_descriptions": [
+        {
+          "timestamp": 0,
+          "description": "Bathroom vanity with decorative items and plants. Hands reach toward product (toilet brush with cleaning caddy). Female hand holding brush."
+        },
+        {
+          "timestamp": 1,
+          "description": "Close-up of toilet brush head revealing black bristles with white center in white/pink holder."
+        },
+        {
+          "timestamp": 2,
+          "description": "Overhead view of toilet bowl. White brush with blue ring being inserted into water, creating foam action."
+        },
+        {
+          "timestamp": 3,
+          "description": "Multiple shots of scrubbing toilet bowl with blue cleaning solution and dramatic foam visualization demonstrating cleaning power."
+        },
+        {
+          "timestamp": 4,
+          "description": "Packaging reveal showing 5 blue refill cartridges in open box with white soap centers visible."
+        },
+        {
+          "timestamp": 5,
+          "description": "Product lifestyle shot showing white/pink toilet brush holder on vanity among decor items."
+        },
+        {
+          "timestamp": 6,
+          "description": "Close product shot of individual blue refill tablet being held in hand, demonstrating size and portability."
+        }
+      ],
+      "product_reveal_timestamp": 5,
+      "overall_notes": "Pure demonstration-driven visual strategy with no creator presence. The video uses persistent, lifestyle-contextual text overlay to create intrigue while focusing entirely on product efficacy visualization. Bold color contrast (blue cleaning liquid) and foam action shots emphasize cleaning power, while packaging and bulk refill reveal emphasizes value proposition and longevity.",
+      "cross_reference_notes": "Visuals directly match transcript: Opening hook text appears throughout ('every time a girl come to my crib'), demonstration of brush mechanism (lever/opening action), visible blue soap coloring in water, dramatic before/after toilet bowl transformation, refill cartridge multi-pack revelation showing quantity, and lifestyle bathroom context establishing aspirational home aesthetic."
+    },
+    "visual_script": "The video opens with a bathroom vanity scene featuring plants and decorative items, establishing a lifestyle context. A female hand reaches toward and picks up a white toilet brush with a blue ring accent from a pink caddy holder, immediately revealing the product. Close-up shots showcase the brush head's black bristles with a white center, then transition to overhead toilet bowl shots where the brush is inserted into water, creating vivid blue cleaning solution and impressive foam action. Multiple subsequent shots show vigorous scrubbing motions with expanding blue water and bubbles, visually demonstrating the product's cleaning efficacy and the integrated soap system. The video then shifts to a packaging reveal showing five blue refill cartridges in an opened box, emphasizing the \"come with mad of them\" value proposition from the transcript. A final product lifestyle shot displays the brush holder on a clean vanity, followed by a close-up of a single refill tablet held in hand. Throughout, persistent white text overlay reading \"EVERYTIME A GIRL COME TO MY CRIB AND SEE THIS...\" maintains narrative continuity and curiosity.",
+    "_uuid": "4fe54f02-783c-454a-a0fe-e763159c2f5e",
+    "_video_id": "7602822534198775053"
+  },
+  "7603942722579320077": {
+    "shot_breakdown": {
+      "total_frames": 8,
+      "face_frames": 0,
+      "broll_frames": 8,
+      "shot_counts": {
+        "FACE": 0,
+        "PRODUCT_CLOSEUP": 3,
+        "HANDS_ON_DEMO": 2,
+        "LIFESTYLE": 0,
+        "TEXT_SCREEN": 0,
+        "TRANSITION": 0,
+        "BEFORE_AFTER": 0,
+        "PACKAGING": 0,
+        "SCREEN_RECORDING": 0
+      },
+      "dominant_broll_type": "PRODUCT_CLOSEUP",
+      "secondary_broll_type": "HANDS_ON_DEMO",
+      "shot_sequence": [
+        "PRODUCT_CLOSEUP",
+        "HANDS_ON_DEMO",
+        "PRODUCT_CLOSEUP",
+        "PRODUCT_CLOSEUP",
+        "HANDS_ON_DEMO",
+        "PRODUCT_CLOSEUP",
+        "PRODUCT_CLOSEUP",
+        "PRODUCT_CLOSEUP"
+      ],
+      "analysis_confidence": "high",
+      "notes": "Fast-paced product showcase with vibrant neon cups in multiple color variations. Heavy emphasis on visual appeal and color variety. No face or traditional talking head present. Repetitive text overlay throughout all frames creates strong visual hook."
+    },
+    "onscreen_text": [
+      {
+        "timestamp_position": "beginning",
+        "text_content": "Let the crazy party begin\ud83d\ude0e",
+        "text_type": "hook_banner",
+        "is_persistent": true
+      }
+    ],
+    "ctas": [
+      {
+        "timestamp_position": "beginning",
+        "cta_text": "Let the crazy party begin\ud83d\ude0e",
+        "cta_type": "visual",
+        "cta_position": "beginning"
+      }
+    ],
+    "visual_notes": {
+      "format_type": "product_demo",
+      "hook_style": "bold_claim",
+      "scene_descriptions": [
+        {
+          "timestamp": 0,
+          "description": "Single blue neon Red Bull cup with glowing ice, establishing product identity and visual aesthetic"
+        },
+        {
+          "timestamp": 1,
+          "description": "Hand holding pink and blue Red Bull cups side-by-side, revealing color variety of product line"
+        },
+        {
+          "timestamp": 2,
+          "description": "Wide shot of multiple glowing cups (cyan, pink, green, blue) with party hats in background, emphasizing collection and festive context"
+        },
+        {
+          "timestamp": 3,
+          "description": "Angled close-up of multiple neon cups arranged in row showing color progression and glow effect"
+        },
+        {
+          "timestamp": 4,
+          "description": "Hands inserting straw into cyan glowing cup, demonstrating product use and interactive element"
+        },
+        {
+          "timestamp": 5,
+          "description": "Three cups in focus (cyan, lime green, magenta) with visible condensation and glow, emphasizing beverage nature"
+        },
+        {
+          "timestamp": 6,
+          "description": "Multiple cups with varied angles and lighting showing depth and full product range (6+ colors visible)"
+        },
+        {
+          "timestamp": 7,
+          "description": "Final wide collection shot showing full range of neon cups with blender and party decorations in background, complete lifestyle context"
+        }
+      ],
+      "product_reveal_timestamp": 0,
+      "overall_notes": "High-energy visual montage showcasing Red Bull's neon glowing cups across multiple vibrant colors (blue, pink, cyan, lime green, magenta). The video leverages visual spectacle and bright, eye-catching aesthetics to create party/celebration atmosphere. Strong emphasis on product variation and collectibility drives engagement.",
+      "cross_reference_notes": "The repetitive 'Let the crazy party begin' text aligns perfectly with the festive visual presentation and energetic product styling. The party-themed audio and text complement the bright neon colors and party decorations visible throughout. The discrepancy between the explicit/suggestive transcript lyrics and family-friendly visual presentation suggests possible audio-visual mismatch or repurposing of trending audio."
+    },
+    "visual_script": "The video opens with a single blue neon-glowing Red Bull cup held prominently, immediately establishing the product's distinctive visual aesthetic. The second frame reveals a hand displaying two cups (pink and blue) side-by-side, introducing the color variety. The third and subsequent frames expand to showcase an increasingly elaborate collection of glowing cups in cyan, lime green, magenta, and blue, arranged artfully with party decorations including hats and a blender visible in the background. Mid-video transitions feature close-up angles emphasizing the condensation and luminescent qualities of the cups, with one frame showing a straw being inserted into a cup to demonstrate functionality. The final frames present an expansive wide shot displaying the complete range of neon cups (6+ colors) arranged in formation with festive party props, creating a celebratory context that reinforces the 'crazy party' messaging. Throughout all frames, the persistent text overlay 'Let the crazy party begin\ud83d\ude0e' maintains brand messaging consistency.",
+    "_uuid": "90e2a52c-ce75-4937-a10f-2b8bd609211a",
+    "_video_id": "7603942722579320077"
+  },
+  "7615445522677026079": {
+    "shot_breakdown": {
+      "total_frames": 13,
+      "face_frames": 0,
+      "broll_frames": 13,
+      "shot_counts": {
+        "FACE": 0,
+        "PRODUCT_CLOSEUP": 7,
+        "HANDS_ON_DEMO": 4,
+        "LIFESTYLE": 1,
+        "TEXT_SCREEN": 0,
+        "TRANSITION": 0,
+        "BEFORE_AFTER": 1,
+        "PACKAGING": 2,
+        "SCREEN_RECORDING": 0
+      },
+      "dominant_broll_type": "PRODUCT_CLOSEUP",
+      "secondary_broll_type": "HANDS_ON_DEMO",
+      "shot_sequence": [
+        "BEFORE_AFTER",
+        "PRODUCT_CLOSEUP",
+        "PRODUCT_CLOSEUP",
+        "PACKAGING",
+        "HANDS_ON_DEMO",
+        "HANDS_ON_DEMO",
+        "PRODUCT_CLOSEUP",
+        "PRODUCT_CLOSEUP",
+        "HANDS_ON_DEMO",
+        "PRODUCT_CLOSEUP",
+        "LIFESTYLE",
+        "HANDS_ON_DEMO",
+        "PACKAGING"
+      ],
+      "analysis_confidence": "high",
+      "notes": "Voiceover product comparison video with extensive product closeups and hands-on demonstrations. No talking head segments. Highly visual, feature-focused format typical of TikTok product review content."
+    },
+    "onscreen_text": [
+      {
+        "timestamp_position": "beginning",
+        "text_content": "Dyson vs Shark",
+        "text_type": "comparison_graphic",
+        "is_persistent": false
+      },
+      {
+        "timestamp_position": "middle",
+        "text_content": "POWERFUL SUCTION - Cordless Convenience with MULTIFLEX & Dirt-Reveal",
+        "text_type": "product_name",
+        "is_persistent": false
+      },
+      {
+        "timestamp_position": "middle",
+        "text_content": "FLOORDETECT, MULTIFLEX, POWERFINS, ANTI-ALLERGEN, DIRT-REVEAL",
+        "text_type": "educational_overlay",
+        "is_persistent": false
+      },
+      {
+        "timestamp_position": "middle",
+        "text_content": "Converts to Handvac",
+        "text_type": "educational_overlay",
+        "is_persistent": false
+      },
+      {
+        "timestamp_position": "end",
+        "text_content": "Shark POWERPRO FLEX REVEAL",
+        "text_type": "product_name",
+        "is_persistent": false
+      },
+      {
+        "timestamp_position": "end",
+        "text_content": "POWERFUL PET HAIR PICKUP, SELF-CLEANING BRUSH ROLL",
+        "text_type": "educational_overlay",
+        "is_persistent": false
+      }
+    ],
+    "ctas": [
+      {
+        "timestamp_position": "end",
+        "cta_text": "if you see a link below, you can still grab one, but I would do it quick",
+        "cta_type": "verbal",
+        "cta_position": "end"
+      },
+      {
+        "timestamp_position": "end",
+        "cta_text": "limited time deal, they don't have a lot in stock",
+        "cta_type": "verbal",
+        "cta_position": "end"
+      }
+    ],
+    "visual_notes": {
+      "format_type": "voiceover_broll",
+      "hook_style": "question",
+      "scene_descriptions": [
+        {
+          "timestamp": 0,
+          "description": "Side-by-side comparison shot of Dyson V8 (purple) and Shark Power Pro Flex (white) vacuums with text overlay 'Dyson vs Shark'. Both vacuums positioned on hardwood floor with piles of dirt/debris visible beneath each head unit demonstrating cleaning capability."
+        },
+        {
+          "timestamp": 2,
+          "description": "Extreme closeup of Shark brush roll mechanism showing self-cleaning technology with clear crystalline structures visible along the roller."
+        },
+        {
+          "timestamp": 3,
+          "description": "Shark PowerPro Flex packaging displayed prominently showing product features, benefits, and key selling points (MULTIFLEX, Dirt-Reveal, FloorDetect)."
+        },
+        {
+          "timestamp": 4,
+          "description": "Hands-on demonstration of Dyson vacuum head mechanism showing dual suction settings control with red button visible."
+        },
+        {
+          "timestamp": 5,
+          "description": "Closeup of Shark vacuum trigger mechanism with blue power button/indicator being pressed by user's finger, demonstrating max power activation."
+        },
+        {
+          "timestamp": 6,
+          "description": "Shark Power Pro Flex with blue Dirt-Reveal light activated, showing illuminated dust collection on hardwood floor under furniture."
+        },
+        {
+          "timestamp": 7,
+          "description": "Shark canister being removed from vacuum body, demonstrating large capacity and easy emptying mechanism."
+        },
+        {
+          "timestamp": 8,
+          "description": "Dyson dust canister closeup showing capacity and dust collection features."
+        },
+        {
+          "timestamp": 9,
+          "description": "User's hand pressing Dyson control buttons, highlighting multiple power settings and features on the handheld unit."
+        },
+        {
+          "timestamp": 10,
+          "description": "Shark Power Pro Flex folding mechanism demonstrated with vacuum bent/articulated to show storage convenience."
+        },
+        {
+          "timestamp": 11,
+          "description": "Lifestyle shot of Shark vacuum being used under low furniture (sofa) demonstrating MULTIFLEX articulation advantage versus competitor."
+        },
+        {
+          "timestamp": 12,
+          "description": "Shark Power Pro Flex full-length product shot being held vertically, showing compact form factor and design aesthetics."
+        },
+        {
+          "timestamp": 13,
+          "description": "Shark Power Pro Flex packaging box showing brand identity, product name 'POWERPRO FLEX REVEAL', key features, and product positioning in retail environment."
+        }
+      ],
+      "product_reveal_timestamp": 0,
+      "overall_notes": "Pure voiceover product comparison using dynamic closeups, side-by-side demonstrations, and hands-on feature reveals. Visual strategy emphasizes mechanical details, performance testing, and product differentiation through action shots. No creator appearance; focus entirely on product specs and capabilities shown through high-quality macro and lifestyle cinematography.",
+      "cross_reference_notes": "Visuals directly support transcript claims: brush roll closeups correspond to 'self-cleaning' discussion, Dirt-Reveal light demo matches 'blue reveal light' mention, canister size shots support 'large capacity' advantage, furniture navigation scenes prove MULTIFLEX flexibility claim, control mechanism demos illustrate suction settings comparison, and folding mechanism supports storage convenience discussion."
+    },
+    "visual_script": "The video opens with a striking side-by-side comparison of the Dyson V8 and Shark Power Pro Flex vacuums positioned on hardwood flooring, with piles of debris beneath each unit demonstrating their cleaning performance. The creator then transitions through a series of extreme closeup shots of the brush roll mechanisms, canister systems, and control interfaces, with hands-on demonstrations showing key features like the Shark's trigger-activated max power, its illuminated Dirt-Reveal light that highlights dust and pet hair, and the large transparent canister. Extreme detail shots showcase the Dyson's dual suction button controls, while lifestyle footage demonstrates the Shark's MULTIFLEX articulation allowing it to reach under low furniture\u2014a key differentiator mentioned in the voiceover. The video culminates with full product shots and packaging displays of both vacuums, emphasizing storage and design benefits. Throughout, the visual strategy relies entirely on product demonstration rather than talking-head presentation, creating an immersive, feature-focused comparison experience.",
+    "_uuid": "97587968-314e-4517-800c-c41052087ea2",
+    "_video_id": "7615445522677026079"
+  },
+  "7617704190168567053": {
+    "shot_breakdown": {
+      "total_frames": 12,
+      "face_frames": 12,
+      "broll_frames": 0,
+      "shot_counts": {
+        "FACE": 12,
+        "PRODUCT_CLOSEUP": 0,
+        "HANDS_ON_DEMO": 0,
+        "LIFESTYLE": 0,
+        "TEXT_SCREEN": 0,
+        "TRANSITION": 0,
+        "BEFORE_AFTER": 0,
+        "PACKAGING": 0,
+        "SCREEN_RECORDING": 0
+      },
+      "dominant_broll_type": null,
+      "secondary_broll_type": null,
+      "shot_sequence": [
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE"
+      ],
+      "analysis_confidence": "high",
+      "notes": "Video consists entirely of talking head/demonstration shots with creator wearing the Natch Patch product throughout. No traditional B-roll or cutaways used. Product remains visible on creator's midsection across all frames while he discusses features and benefits."
+    },
+    "onscreen_text": [
+      {
+        "timestamp_position": "beginning",
+        "text_content": "I did NOT expect the $natch....\ud83d\ude2d",
+        "text_type": "hook_banner",
+        "is_persistent": false
+      },
+      {
+        "timestamp_position": "middle",
+        "text_content": "NATCH PATCH",
+        "text_type": "product_name",
+        "is_persistent": false
+      },
+      {
+        "timestamp_position": "middle",
+        "text_content": "NATCH PATCH BELLY ADVICE",
+        "text_type": "educational_overlay",
+        "is_persistent": false
+      }
+    ],
+    "ctas": [
+      {
+        "timestamp_position": "end",
+        "cta_text": "Go check the reviews",
+        "cta_type": "verbal",
+        "cta_position": "middle"
+      },
+      {
+        "timestamp_position": "end",
+        "cta_text": "If you want to go ahead and grab you some, I'll go ahead and tag the link down below",
+        "cta_type": "link_in_bio",
+        "cta_position": "end"
+      },
+      {
+        "timestamp_position": "end",
+        "cta_text": "If you do not see that one shopping cart guys, they have completely sold out",
+        "cta_type": "shopping_cart",
+        "cta_position": "end"
+      }
+    ],
+    "visual_notes": {
+      "format_type": "talking_head",
+      "hook_style": "shock_value",
+      "scene_descriptions": [
+        {
+          "timestamp": 0,
+          "description": "Creator holds up sealed Natch Patch product with visible green packaging and Japanese characters. Makes shocked expression with text overlay 'I did NOT expect the $natch....\ud83d\ude2d' introducing the product."
+        },
+        {
+          "timestamp": 3,
+          "description": "Creator peels back layers of patch, demonstrating application process on his midsection with instructional narration about peeling steps."
+        },
+        {
+          "timestamp": 6,
+          "description": "Creator applies patch to stomach area, expressing immediate reaction ('whoo, I already feel it') while maintaining focus on product placement and visibility."
+        },
+        {
+          "timestamp": 9,
+          "description": "Creator discusses product benefits and ingredients while holding up packaging with visible branding and holding phone showing reviews/ingredients information."
+        },
+        {
+          "timestamp": 12,
+          "description": "Creator displays full five-pack box of product with green and white packaging, discussing pack quantity and results, emphasizing scarcity and stock status."
+        }
+      ],
+      "product_reveal_timestamp": 0,
+      "overall_notes": "The video uses an entirely talking-head format where the creator is both the demonstrator and the focus throughout. The Natch Patch product remains prominently displayed on his midsection for 80% of the video, creating consistent product visibility. The strategy relies on authentic reaction-based content with shock-value hook and credibility-building through review mentions and ingredient transparency.",
+      "cross_reference_notes": "Visual pacing matches transcript flow: opening shock reaction, step-by-step application narration, immediate benefit claim ('already feel it'), Japanese manufacturing credibility angle, ingredient discussion with packaging visibility, pack quantity reveal, and closing sales urgency with CTA and scarcity messaging."
+    },
+    "visual_script": "The video opens with the creator displaying an unopened Natch Patch product in its sealed packaging, expressing shock at the results with an emoji-overlaid caption. He then demonstrates the three-step application process\u2014peeling back successive layers while narrating each step\u2014before applying the green herbal patch directly to his midsection. Throughout the demonstration, the creator maintains animated facial expressions and hand gestures to convey genuine surprise at how the product feels and works. The middle section features the creator discussing product benefits and ingredients while either pointing to the patch on his body or holding up packaging to showcase branding and details. The final frames show him displaying the five-pack box and white/green product packaging while delivering closing sales messaging about reviews, ingredient quality, and stock availability, creating urgency through scarcity language.",
+    "_uuid": "7986265d-330a-4359-a9c2-daeb4aeecdd4",
+    "_video_id": "7617704190168567053"
+  },
+  "7619817856556993806": {
+    "shot_breakdown": {
+      "total_frames": 12,
+      "face_frames": 12,
+      "broll_frames": 0,
+      "shot_counts": {
+        "FACE": 12,
+        "PRODUCT_CLOSEUP": 0,
+        "HANDS_ON_DEMO": 0,
+        "LIFESTYLE": 0,
+        "TEXT_SCREEN": 0,
+        "TRANSITION": 0,
+        "BEFORE_AFTER": 0,
+        "PACKAGING": 0,
+        "SCREEN_RECORDING": 0
+      },
+      "dominant_broll_type": null,
+      "secondary_broll_type": null,
+      "shot_sequence": [
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE",
+        "FACE"
+      ],
+      "analysis_confidence": "high",
+      "notes": "Video is almost entirely talking-head format with creator demonstrating the heating patch on his torso throughout. All frames show the same creator in bathroom setting with consistent lighting and composition. The patch remains visible on his abdomen throughout most frames, with minimal scene changes."
+    },
+    "onscreen_text": [
+      {
+        "timestamp_position": "beginning",
+        "text_content": "These Japanese \"$natch patches\" ain't no joke...\ud83d\ude2d\ud83e\udd26",
+        "text_type": "hook_banner",
+        "is_persistent": false
+      },
+      {
+        "timestamp_position": "middle",
+        "text_content": "I did NOT expect the $natch...\ud83d\ude2d\ud83d\ude4f",
+        "text_type": "educational_overlay",
+        "is_persistent": false
+      }
+    ],
+    "ctas": [
+      {
+        "timestamp_position": "end",
+        "cta_text": "I'll tag the link for these right at the bottom of the video. If you don't see that orange shopping cart, that means they've already sold out. So if you see that cart, I would run and grab them quickly.",
+        "cta_type": "verbal",
+        "cta_position": "end"
+      },
+      {
+        "timestamp_position": "end",
+        "cta_text": "orange shopping cart",
+        "cta_type": "shopping_cart",
+        "cta_position": "end"
+      },
+      {
+        "timestamp_position": "end",
+        "cta_text": "link at the bottom of the video",
+        "cta_type": "link_in_bio",
+        "cta_position": "end"
+      }
+    ],
+    "visual_notes": {
+      "format_type": "talking_head",
+      "hook_style": "shock_value",
+      "scene_descriptions": [
+        {
+          "timestamp": 0,
+          "description": "Creator shirtless, smiling widely with patch applied to abdomen. Text overlay introduces the product as Japanese 'natch patches' with emphasis on intensity."
+        },
+        {
+          "timestamp": 3,
+          "description": "Close-up of creator's face showing surprised/concerned expression. Visible thermometer or temperature indicator behind him suggesting heat measurement."
+        },
+        {
+          "timestamp": 6,
+          "description": "Creator demonstrating peeling/application process of the patch, holding edges and showing the multi-layer removal process with facial reactions."
+        },
+        {
+          "timestamp": 9,
+          "description": "Creator shirtless showing fully applied green patch on torso, narrating experience and emphasizing the 'heating up' sensation with hand gestures."
+        },
+        {
+          "timestamp": 12,
+          "description": "Creator holding product packaging (HIKKA brand visible), discussing bulk purchasing strategy (5-pack, ordered 3) and directing viewers to link in bio with urgency around stock depletion."
+        }
+      ],
+      "product_reveal_timestamp": 1,
+      "overall_notes": "The video uses a consistent talking-head format to maintain viewer attention on the creator's authentic reactions to the heating sensation. The strategic placement of the green patch on the torso serves as visual proof of product application throughout. Text overlays at beginning and middle create narrative hooks and manage expectations about intensity, while the final frames pivot to sales-focused CTAs emphasizing scarcity and urgency.",
+      "cross_reference_notes": "Visual elements directly support transcript: creator's shocked expressions match 'hot as shit' language, patch visibility demonstrates application steps mentioned ('peel this side, grab the herbal remedy, apply'), and packaging shots validate claims about five-pack availability and bulk ordering recommendations. Scarcity messaging in verbal CTA is reinforced by mentioning product is 'selling out like crazy.'"
+    },
+    "visual_script": "The video opens with a shirtless creator displaying a bright green heating patch applied to his abdomen, immediately establishing the product and grabbing attention with an enthusiastic expression. His face dominates the frame throughout all twelve clips, with consistent bathroom lighting and white tile background. The creator progresses through various facial expressions\u2014from initial enjoyment to shock to enthusiasm\u2014as he verbally describes the application process and sensations. Key moments include him demonstrating the multi-layer peeling process, expressing surprise at the heat intensity, and displaying the full product packaging near the conclusion. The patch remains prominently visible throughout most frames, serving as continuous visual confirmation of the product being reviewed. The final frames shift focus to the packaging and product branding as the creator delivers purchase instructions and scarcity warnings.",
+    "_uuid": "83df0093-2d87-4387-bd21-9c4f4ac0fdc9",
+    "_video_id": "7619817856556993806"
+  },
+  "7625051711895424270": {
+    "shot_breakdown": {
+      "total_frames": 12,
+      "face_frames": 12,
+      "broll_frames": 0,
+      "shot_counts": {
+        "FACE": 8,
+        "PRODUCT_CLOSEUP": 0,
+        "HANDS_ON_DEMO": 4,
+        "LIFESTYLE": 0,
+        "TEXT_SCREEN": 0,
+        "TRANSITION": 0,
+        "BEFORE_AFTER": 0,
+        "PACKAGING": 0,
+        "SCREEN_RECORDING": 0
+      },
+      "dominant_broll_type": "HANDS_ON_DEMO",
+      "secondary_broll_type": null,
+      "shot_sequence": [
+        "FACE",
+        "FACE",
+        "HANDS_ON_DEMO",
+        "HANDS_ON_DEMO",
+        "FACE",
+        "HANDS_ON_DEMO",
+        "HANDS_ON_DEMO",
+        "FACE",
+        "FACE",
+        "HANDS_ON_DEMO",
+        "HANDS_ON_DEMO",
+        "FACE"
+      ],
+      "analysis_confidence": "high",
+      "notes": "Predominantly talking head format with integrated product demonstration shots showing hands applying products. Creator maintains direct camera engagement throughout while seamlessly transitioning between explanatory content and hands-on product application."
+    },
+    "onscreen_text": [
+      {
+        "timestamp_position": "beginning",
+        "text_content": "I got a facelift at 35",
+        "text_type": "hook_banner",
+        "is_persistent": false
+      },
+      {
+        "timestamp_position": "middle",
+        "text_content": "WHY SPICULES BOOST COLLAGEN: Stimulate collagen, Enhance absorption, Speed up renewal, Less invasive",
+        "text_type": "educational_overlay",
+        "is_persistent": false
+      }
+    ],
+    "ctas": [
+      {
+        "timestamp_position": "beginning",
+        "cta_text": "I got a facelift at 35",
+        "cta_type": "verbal",
+        "cta_position": "beginning"
+      },
+      {
+        "timestamp_position": "middle",
+        "cta_text": "Before you all come into my comments judging me",
+        "cta_type": "verbal",
+        "cta_position": "beginning"
+      }
+    ],
+    "visual_notes": {
+      "format_type": "talking_head",
+      "hook_style": "shock_value",
+      "scene_descriptions": [
+        {
+          "timestamp": 0,
+          "description": "Creator with bandaged face (post-procedure aesthetic) making direct eye contact with wide expression, establishing hook about facelift at age 35. White headband and nose patch create visual interest and relatable post-treatment appearance."
+        },
+        {
+          "timestamp": 30,
+          "description": "Creator removes bandages and demonstrates bare-faced skin with minimal makeup, establishing before state. Multiple angles showing clarity of complexion. Transition to product lineup reveal with four Korean skincare bottles displayed on table."
+        },
+        {
+          "timestamp": 60,
+          "description": "Educational overlay showing spicule mechanism (cross-section diagram of skin penetration) with four benefit icons explaining collagen stimulation. Creator continues talking while holding pink serum product, demonstrating application on hand/arm with visible texture and consistency."
+        },
+        {
+          "timestamp": 90,
+          "description": "Before/after comparison graphic showing close-up of skin (left side showing previous texture/concerns, right side showing improved appearance). Creator provides detailed testimonial about pore reduction and makeup application improvement."
+        },
+        {
+          "timestamp": 120,
+          "description": "Creator holding various product containers, discussing pigmentation corrector benefits. Continues product-by-product breakdown with hands-on demonstrations of textures and application methods. Maintains engaged facial expressions and direct eye contact throughout."
+        }
+      ],
+      "product_reveal_timestamp": 45,
+      "overall_notes": "The video employs a high-engagement talking-head format anchored by the creator's authentic reaction and emotional connection to the products. Visual strategy emphasizes relatability through the post-procedure bandage aesthetic (establishing credibility), transitions to bare-faced transparency (building trust), and integrates educational overlays with hands-on product demonstrations (combining education with persuasion). The persistent presence of the creator's face and consistent eye contact maintains viewer engagement while product displays remain secondary visual elements.",
+      "cross_reference_notes": "Visual elements directly support transcript narrative arc: opening bandage setup validates the 'facelift' hook, bare-faced reveal aligns with '6 months of use' claim and 'decade younger' assertion, product lineup visualization corresponds to 'five products' system explanation, spicule diagram supports 'micro-needling in bottle' terminology, before/after graphic reinforces visible results claims about pore reduction and texture smoothing, and final product handling demonstrates accessibility and ease of use supporting value proposition against $3,000 professional treatment cost."
+    },
+    "visual_script": "The video opens with a dramatic hook\u2014the creator facing the camera with a white headband and nose patch, evoking post-surgical recovery, immediately establishing the controversial claim. She removes the bandages to reveal her bare face, no makeup, presenting authenticity and transparency about her starting point. The scene transitions to a full product lineup reveal, four bottles of Korean skincare arranged on a table, introducing the system visually. An educational overlay displays cross-sectional diagrams of how spicules work on skin layers, with benefit icons explaining collagen stimulation. Throughout, the creator demonstrates product textures and application methods with close-ups of her hands applying serums and creams. A before/after comparison graphic appears, showing detailed skin texture changes. The creator maintains direct eye contact and animated facial expressions throughout, alternating between talking-head segments and hands-on product demonstrations, creating an intimate, trustworthy testimonial format that makes professional skincare feel accessible and relatable.",
+    "_uuid": "70e0baf2-b95d-4e2c-8c1d-31130430308d",
+    "_video_id": "7625051711895424270"
+  }
+}

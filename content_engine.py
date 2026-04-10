@@ -1872,25 +1872,49 @@ def _hook_similarity(hook_a, hook_b):
     return len(overlap) / len(union) if union else 0.0
 
 
-def select_diverse_top_n(scored_hooks, n=5, similarity_threshold=0.3):
+def select_diverse_top_n(scored_hooks, n=5, similarity_threshold=0.3,
+                         hook_template_map=None):
     """
     Select top N hooks with diversity enforcement.
 
-    Instead of just taking the top N by score, uses a greedy approach:
+    Uses a greedy approach with both text similarity AND category diversity:
     1. Pick the highest-scored hook
-    2. For each subsequent pick, skip any hook that is too similar
-       to an already-selected hook (Jaccard similarity > threshold)
+    2. For each subsequent pick, skip if:
+       - Too similar to an already-selected hook (Jaccard > threshold)
+       - Would result in >2 hooks from the same template category
     3. Continue until N hooks are selected
+
+    Category enforcement (data-driven):
+      - Max 2 hooks from the same category (warning, curiosity, etc.)
+      - This ensures the 5 selected hooks span at least 3 categories
 
     Args:
         scored_hooks: list of {"text": ..., "score": ...} sorted by score desc
         n: number of hooks to select (default 5)
         similarity_threshold: max word overlap allowed (default 0.3 = 30%)
+        hook_template_map: optional dict mapping hook text -> template_id (e.g. "HT1")
 
     Returns:
         list of selected hook dicts (in selection order)
     """
+    # Build template -> category lookup
+    category_lookup = {}
+    if hook_template_map:
+        try:
+            from v2.pipeline.hook_templates import HOOK_TEMPLATES
+        except ImportError:
+            try:
+                from tiktok_engine.v2.pipeline.hook_templates import HOOK_TEMPLATES
+            except ImportError:
+                HOOK_TEMPLATES = []
+        tmpl_to_cat = {t["id"]: t["category"] for t in HOOK_TEMPLATES}
+        for text, tmpl_id in hook_template_map.items():
+            category_lookup[text] = tmpl_to_cat.get(tmpl_id, "original")
+
     selected = []
+    category_counts = {}
+    MAX_PER_CATEGORY = 2  # Data-driven: ensures min 3 categories in top 5
+
     for hook in scored_hooks:
         if len(selected) >= n:
             break
@@ -1903,8 +1927,17 @@ def select_diverse_top_n(scored_hooks, n=5, similarity_threshold=0.3):
                 too_similar = True
                 break
 
-        if not too_similar:
-            selected.append(hook)
+        if too_similar:
+            continue
+
+        # Check category cap (if category data available)
+        if category_lookup:
+            cat = category_lookup.get(hook["text"], "original")
+            if category_counts.get(cat, 0) >= MAX_PER_CATEGORY:
+                continue
+            category_counts[cat] = category_counts.get(cat, 0) + 1
+
+        selected.append(hook)
 
     # If we couldn't find enough diverse hooks, fall back to filling from top scores
     if len(selected) < n:
@@ -1946,7 +1979,10 @@ def score_and_rank_hooks(hook_texts, product_brief, db_hooks):
 def generate_scripts_prompt(product_brief, research_context, structural_rules,
                             use_case_rules, locked_hooks, persona_context="",
                             web_research="", product_research="",
-                            angle_constraints="", ost_constraints=""):
+                            angle_constraints="", ost_constraints="",
+                            broll_constraints="", audio_constraints="",
+                            cta_constraints="", pacing_constraints="",
+                            structure_summary=""):
     """
     PASS 4: Generate full scripts with PRE-LOCKED hooks.
 
@@ -1954,10 +1990,14 @@ def generate_scripts_prompt(product_brief, research_context, structural_rules,
     The model cannot change, rephrase, or "improve" the hooks.
     """
 
-    hooks_block = "\n".join([
-        f"  HERO {i+1} HOOK (LOCKED — use this EXACTLY, word for word): \"{h}\""
-        for i, h in enumerate(locked_hooks)
-    ])
+    # Support both plain strings and dicts with template_id
+    hooks_lines = []
+    for i, h in enumerate(locked_hooks):
+        if isinstance(h, dict):
+            hooks_lines.append(f"  HERO {i+1} HOOK (LOCKED — use EXACTLY): \"{h['text']}\" | hook_template: \"{h['template_id']}\"")
+        else:
+            hooks_lines.append(f"  HERO {i+1} HOOK (LOCKED — use EXACTLY): \"{h}\" | hook_template: \"ORIGINAL\"")
+    hooks_block = "\n".join(hooks_lines)
 
     # Build the product knowledge section — use Pass 0 research if available, fall back to brief + web_research
     product_section = f"=== PRODUCT INFORMATION ===\n{product_brief}"
@@ -2118,10 +2158,20 @@ THE TEST: Read every line out loud. If it sounds like something a copywriter typ
 rewrite it as something the creator would actually SAY to a friend over coffee.
 If any number sounds like it was copied from an Amazon listing, round it and reword it.
 
+{structure_summary}
+
 === RESEARCH DATA FROM TOP-PERFORMING AFFILIATE VIDEOS ===
 {research_context}
 
 {product_section}
+
+{broll_constraints}
+
+{audio_constraints}
+
+{cta_constraints}
+
+{pacing_constraints}
 
 === YOUR TASK ===
 Generate the SHOOT GUIDE JSON only. Structure:
@@ -2131,6 +2181,7 @@ Generate the SHOOT GUIDE JSON only. Structure:
   "talkingHeadShots":[
     {{"label":"TH1","concept":"Hero 1 — Concept Name",
       "content_angle":"<angle_key from rankings>",
+      "hook_template":"<HT# from the locked hook above — MUST include this>",
       "angle_evidence":{{"rank":<n>,"weighted_score":<n>,"avg_likes":<n>,"avg_shares":<n>,"video_count":<n>}},
       "note":"Setup/energy note",
       "lines":[
@@ -2151,7 +2202,8 @@ REQUIREMENTS:
 - 7-8 lines per script, 140-220 words, mix of ON CAMERA and VOICEOVER
 - The script must RESOLVE the hook's curiosity gap naturally
 - Minimum 3 spoken CTAs per hero (value_proposition mid + direct_link + urgency close)
-- 15-20 b-roll shots (FILMABLE ONLY — no text overlays, no graphics, no post-production elements), 5 voiceover clips for remixes
+- 8-12 b-roll shots for the master shot list (FILMABLE ONLY — no text overlays, no graphics, no post-production elements), but each HERO video's visual timeline should only USE 2-4 of them as brief cutaways (see B-ROLL USAGE RULES above)
+- 5 voiceover clips for remixes
 - All use cases must be real (creator physically present, using the product)
 - Keep shoot practical — mostly filmable at home/nearby locations
 - B-roll descriptions should be plain and direct — no [FREE] or [PURCHASE] tags, just what to film
@@ -2348,13 +2400,19 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
         print(f"    #{item['rank']:2d} (score {item['score']:3d}): \"{item['text'][:60]}\"{marker}")
 
     # Pick top 5 with diversity enforcement
-    diverse_top = select_diverse_top_n(ranked, n=5, similarity_threshold=0.3)
+    diverse_top = select_diverse_top_n(ranked, n=5, similarity_threshold=0.3,
+                                       hook_template_map=hook_template_map)
     top_5 = [item["text"] for item in diverse_top]
+    # Build top_5 with template IDs attached for downstream tracking
+    top_5_with_templates = []
+    for item in diverse_top:
+        tmpl = hook_template_map.get(item["text"], "ORIGINAL")
+        top_5_with_templates.append({"text": item["text"], "template_id": tmpl})
     print(f"\n  TOP 5 HOOKS (diversity-checked):")
-    for i, h in enumerate(top_5):
-        orig_rank = next(r["rank"] for r in ranked if r["text"] == h)
-        score = next(r["score"] for r in ranked if r["text"] == h)
-        print(f"    Hero {i+1} (rank #{orig_rank}, score {score}): \"{h}\"")
+    for i, h in enumerate(top_5_with_templates):
+        orig_rank = next(r["rank"] for r in ranked if r["text"] == h["text"])
+        score = next(r["score"] for r in ranked if r["text"] == h["text"])
+        print(f"    Hero {i+1} (rank #{orig_rank}, score {score}, {h['template_id']}): \"{h['text']}\"")
 
     # ── PASS 4: Generate Scripts ──
     print("\n[PASS 4] Building scripts prompt with locked hooks...")
@@ -2380,17 +2438,62 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
     ost_constraints = build_ost_constraint_prompt()
     print(f"  OST constraints ready ({len(ost_constraints)} chars)")
 
+    # Build B-roll constraints from database (Improvement #4)
+    try:
+        from tiktok_engine.v2.pipeline.broll_analyzer import build_broll_constraint_prompt
+    except ImportError:
+        from v2.pipeline.broll_analyzer import build_broll_constraint_prompt
+    broll_constraints = build_broll_constraint_prompt()
+    print(f"  B-roll constraints ready ({len(broll_constraints)} chars)")
+
+    # Build Audio constraints from database (Improvement #5)
+    try:
+        from tiktok_engine.v2.pipeline.audio_analyzer import build_audio_constraint_prompt
+    except ImportError:
+        from v2.pipeline.audio_analyzer import build_audio_constraint_prompt
+    audio_constraints = build_audio_constraint_prompt()
+    print(f"  Audio constraints ready ({len(audio_constraints)} chars)")
+
+    # Build CTA placement constraints from database (Improvement #6)
+    try:
+        from tiktok_engine.v2.pipeline.cta_analyzer import build_cta_constraint_prompt
+    except ImportError:
+        from v2.pipeline.cta_analyzer import build_cta_constraint_prompt
+    cta_constraints = build_cta_constraint_prompt()
+    print(f"  CTA constraints ready ({len(cta_constraints)} chars)")
+
+    # Build Pacing constraints from transcript analysis (Improvement #7)
+    try:
+        from tiktok_engine.v2.pipeline.pacing_analyzer import build_pacing_constraint_prompt
+    except ImportError:
+        from v2.pipeline.pacing_analyzer import build_pacing_constraint_prompt
+    pacing_constraints = build_pacing_constraint_prompt()
+    print(f"  Pacing constraints ready ({len(pacing_constraints)} chars)")
+
+    # Build Structure summary (Improvement #8 — top-level hero vs remix blueprint)
+    try:
+        from tiktok_engine.v2.pipeline.structure_rules import build_structure_summary_prompt
+    except ImportError:
+        from v2.pipeline.structure_rules import build_structure_summary_prompt
+    structure_summary = build_structure_summary_prompt()
+    print(f"  Structure summary ready ({len(structure_summary)} chars)")
+
     scripts_prompt = generate_scripts_prompt(
         product_brief=product_brief,
         research_context=research_context,
         structural_rules=structural_rules,
         use_case_rules=use_case_rules,
-        locked_hooks=top_5,
+        locked_hooks=top_5_with_templates,
         persona_context=persona_context,
         web_research=web_research,
         product_research=product_research,
         angle_constraints=angle_constraints,
         ost_constraints=ost_constraints,
+        broll_constraints=broll_constraints,
+        audio_constraints=audio_constraints,
+        cta_constraints=cta_constraints,
+        pacing_constraints=pacing_constraints,
+        structure_summary=structure_summary,
     )
 
     print(f"  Scripts prompt ready ({len(scripts_prompt)} chars)")
@@ -2401,7 +2504,7 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
         "stage": "scripts_ready",
         "scripts_prompt": scripts_prompt,
         "scored_hooks": ranked,
-        "locked_hooks": top_5,
+        "locked_hooks": top_5_with_templates,
         "angle_rankings": angle_rankings,
         "stats": stats,
         "persona": persona,

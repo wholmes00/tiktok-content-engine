@@ -58,8 +58,15 @@ def validate_content_plan(content_plan):
     failures = []
     stats = {}
 
+    # v3 compatibility: if the content plan has v3-format data, convert it
+    # to the v2 format the validator expects
     shoot = content_plan.get("shoot_guide")
     edit = content_plan.get("edit_guide")
+
+    if shoot and "on_camera" in shoot and "heroes" not in shoot:
+        shoot = _adapt_v3_shoot_to_v2(shoot)
+    if edit and "videos" in edit and "heroes" not in edit:
+        edit = _adapt_v3_edit_to_v2(edit)
 
     # ═══════════════════════════════════════════════════════
     #  TIER 1: Structural Validation
@@ -572,3 +579,129 @@ def print_content_validation_report(result):
         for f in failures:
             icon = "🔴" if f["severity"] == "critical" else "🟡"
             print(f"  {icon} [{f['section']}] {f['message']}")
+
+
+# ═══════════════════════════════════════════════════════════════════
+#  v3 → v2 ADAPTER (for backward-compatible validation)
+# ═══════════════════════════════════════════════════════════════════
+
+def _adapt_v3_shoot_to_v2(v3_shoot):
+    """Convert v3 shoot guide to v2 format for the validator."""
+    product_tag = v3_shoot.get("product_name", v3_shoot.get("subtitle", "")).split()[0].upper()
+
+    heroes = []
+    for group in v3_shoot.get("on_camera", []):
+        label = group.get("video_label", "")
+        lines = []
+        for item in group.get("lines", []):
+            if isinstance(item, dict):
+                lines.append({
+                    "code": "",
+                    "tag": item.get("tag", "ON CAMERA"),
+                    "text": item.get("text", ""),
+                    "is_direction": False,
+                })
+            else:
+                lines.append({
+                    "code": "",
+                    "tag": "ON CAMERA",
+                    "text": str(item),
+                    "is_direction": False,
+                })
+        heroes.append({
+            "code": f"TH{len(heroes)+1}",
+            "product": product_tag,
+            "title": label,
+            "notes": [],
+            "lines": lines,
+            "hook_template": group.get("hook_template", ""),
+        })
+
+    broll = []
+    for shot in v3_shoot.get("broll", []):
+        broll.append({
+            "code": shot.get("code", ""),
+            "product": product_tag,
+            "description": shot.get("description", ""),
+        })
+
+    voiceovers = []
+    for vo in v3_shoot.get("voiceovers", []):
+        voiceovers.append({
+            "code": f"VO{len(voiceovers)+1}",
+            "product": product_tag,
+            "script": vo.get("script", ""),
+        })
+
+    return {
+        "title": "SHOOT GUIDE",
+        "subtitle": v3_shoot.get("subtitle", ""),
+        "product_summary": v3_shoot.get("product_name", ""),
+        "heroes": heroes,
+        "broll": broll,
+        "voiceovers": voiceovers,
+    }
+
+
+def _adapt_v3_edit_to_v2(v3_edit):
+    """Convert v3 edit guide to v2 format for the validator."""
+    videos = v3_edit.get("videos", [])
+    hero_videos = [v for v in videos if v.get("type") == "hero"]
+    remix_videos = [v for v in videos if v.get("type") == "remix"]
+
+    heroes = []
+    for i, hv in enumerate(hero_videos):
+        # Build timeline from script lines
+        timeline = []
+        for j, line in enumerate(hv.get("script", [])):
+            tag = "ON CAMERA" if "camera" in line.get("type", "").lower() else "VOICEOVER"
+            timeline.append({
+                "timestamp": "",
+                "shot_ref": f"TH{i+1}",
+                "content": f'{tag}: "{line.get("text", "")}"',
+            })
+
+        # Build OST
+        onscreen_text = []
+        for entry in hv.get("on_screen_text", []):
+            if isinstance(entry, str):
+                onscreen_text.append({"timestamp": "", "text": entry})
+            elif isinstance(entry, dict):
+                onscreen_text.append(entry)
+
+        heroes.append({
+            "label": f"HERO VIDEO {i+1}",
+            "title": hv.get("title", ""),
+            "hook": hv.get("hook", ""),
+            "hook_template": hv.get("hook_template", ""),
+            "content_angle": hv.get("content_angle", ""),
+            "audio": hv.get("audio", ""),
+            "timeline": timeline,
+            "onscreen_text": onscreen_text,
+        })
+
+    remixes = []
+    for i, rv in enumerate(remix_videos):
+        vo_lines = [l.get("text", "") for l in rv.get("script", []) if "voice" in l.get("type", "").lower()]
+        vo_script = " ".join(vo_lines) if vo_lines else None
+
+        ost = rv.get("on_screen_text", [])
+
+        remixes.append({
+            "title": rv.get("title", ""),
+            "info_line": "",
+            "broll_assembly": [f"{b['code']} — {b['description']}" for b in rv.get("broll_used", [])],
+            "onscreen_text_script": ost,
+            "voiceover_script": vo_script,
+        })
+
+    return {
+        "creator_name": v3_edit.get("creator_name", ""),
+        "product_summary": v3_edit.get("product_name", ""),
+        "video_counts": v3_edit.get("video_count", ""),
+        "analysis_count": v3_edit.get("analysis_count", 0),
+        "date": v3_edit.get("date", ""),
+        "heroes": heroes,
+        "remixes": remixes,
+        "upload_details": {"hashtags": [], "captions": [], "schedule": []},
+    }
