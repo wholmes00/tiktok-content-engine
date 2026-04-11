@@ -1980,6 +1980,7 @@ def generate_scripts_prompt(product_brief, research_context, structural_rules,
                             use_case_rules, locked_hooks, persona_context="",
                             web_research="", product_research="",
                             angle_constraints="", ost_constraints="",
+                            ost_copy_constraints="",
                             broll_constraints="", audio_constraints="",
                             cta_constraints="", pacing_constraints="",
                             structure_summary=""):
@@ -2069,6 +2070,8 @@ THE GOLDEN TEST: Before writing any line, ask: "Would this person actually say t
 {angle_constraints}
 
 {ost_constraints}
+
+{ost_copy_constraints}
 
 ═══════════════════════════════════════
 PRE-LOCKED HOOKS (DO NOT CHANGE THESE)
@@ -2438,6 +2441,16 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
     ost_constraints = build_ost_constraint_prompt()
     print(f"  OST constraints ready ({len(ost_constraints)} chars)")
 
+    # Build OST copy pattern constraints from database (Improvement #3b)
+    try:
+        from tiktok_engine.v2.pipeline.ost_copy_analyzer import build_ost_copy_constraint_prompt
+    except ImportError:
+        from v2.pipeline.ost_copy_analyzer import build_ost_copy_constraint_prompt
+    ost_copy_constraints = build_ost_copy_constraint_prompt(
+        content_angles=[r["angle"] for r in angle_rankings[:6]] if angle_rankings else None
+    )
+    print(f"  OST copy patterns ready ({len(ost_copy_constraints)} chars)")
+
     # Build B-roll constraints from database (Improvement #4)
     try:
         from tiktok_engine.v2.pipeline.broll_analyzer import build_broll_constraint_prompt
@@ -2489,6 +2502,7 @@ def generate_content_plan_v2(product_brief, product_category=None, web_research=
         product_research=product_research,
         angle_constraints=angle_constraints,
         ost_constraints=ost_constraints,
+        ost_copy_constraints=ost_copy_constraints,
         broll_constraints=broll_constraints,
         audio_constraints=audio_constraints,
         cta_constraints=cta_constraints,

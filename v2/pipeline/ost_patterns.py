@@ -345,6 +345,31 @@ def build_ost_constraint_prompt(content_angles=None):
     lines.append("   for very short phrases (≤4 words).")
     lines.append("")
 
+    # ── Remix-specific timing rules (from database analysis) ──
+    lines.append("=" * 50)
+    lines.append("REMIX-SPECIFIC OST TIMING (DATABASE-VERIFIED)")
+    lines.append("=" * 50)
+    lines.append("")
+    lines.append("Analysis of all remix-format videos (voiceover_broll, text_only,")
+    lines.append("borrowed_voiceover) reveals a UNIVERSAL timing rule:")
+    lines.append("")
+    lines.append("  • 100% of remix OST entries appear at timestamp 0:00 (first frame)")
+    lines.append("  • 38% are persistent (stay entire video), 62% non-persistent")
+    lines.append("  • The dominant text_type is 'hook_text' — the OST IS the hook")
+    lines.append("")
+    lines.append("REMIX OST RULES (NON-NEGOTIABLE):")
+    lines.append("  1. Every remix video's on-screen text MUST appear at [0:00]")
+    lines.append("  2. The text functions as a HOOK — it grabs attention from frame 1")
+    lines.append("  3. For text_only remixes: the OST is the ONLY hook (no voice)")
+    lines.append("     — it must stop the scroll on its own")
+    lines.append("  4. For voiceover remixes: the OST reinforces the spoken hook")
+    lines.append("  5. CTAs belong in a separate field — do NOT cram CTAs into the OST text")
+    lines.append("  6. One OST card per remix is the data-proven pattern:")
+    lines.append("     — text_only: avg 1.0 cards")
+    lines.append("     — voiceover_broll: avg 1.3 cards")
+    lines.append("     — borrowed_voiceover: avg 1.3 cards")
+    lines.append("")
+
     return "\n".join(lines)
 
 
